@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Auth;
 
-class HomeController extends Controller
+class Home extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,4 +27,5 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
 }

@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Models\User;
+
 class admin extends Seeder
 {
     /**
@@ -11,6 +13,13 @@ class admin extends Seeder
      */
     public function run()
     {
-        
+        User::create([
+            'first_name' => 'test', 
+            'last_name'  => 'test', 
+            'username'   => 'admin', 
+            'password'   => 'admin', 
+            'status'     => 'superadmin',
+            'rate'       => '0'
+        ]);        
     }
 }

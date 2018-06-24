@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Invoice extends Migration
+class Invoices extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class Invoice extends Migration
      */
     public function up()
     {
-        Schema::create('invoice', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
             $table->string('items');
             $table->string('owner');
+            $table->string('terms');
+            $table->string('tin');
+            $table->string('address');
+            $table->string('buisness_style');
             $table->string('original_price');
             $table->string('retail_price');
             $table->timestamps();
@@ -30,6 +34,6 @@ class Invoice extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('invoice');
+        Schema::dropIfExists('invoices');
     }
 }

@@ -1,0 +1,8 @@
+.custom-row { padding: 10px; }
+
+.custom-input {  border: 0; outline: 0; background: transparent; border-bottom: 1px solid black; font-size: 20px; width: 100%; margin-bottom: 20px; }
+.custom-input2 {  border: 0; outline: 0; background: transparent; border-bottom: 1px solid black; font-size: 20px; width: 100%}
+
+.custom-row-header { padding: 28px;  text-align: center; margin: auto; }
+
+.table-container { width: 90%; text-align: center; margin: 0 auto; }
