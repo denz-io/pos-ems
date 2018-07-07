@@ -27,13 +27,13 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
                             <td>
-                                <img class="inventoryimage" src="{{ asset('images/item_pics/' . $item->image)}}"></image>
+                                <img class="inventoryimage" src="{{ asset('images/item_pics/' . $item->image)}}" alt="Update Image"></image>
                             </td>
                             <td>{{ $item->stock }}</td>
                             <td>{{ $item->retail_price }} php</td>
                             <td>
                                 <div style="color: #fff !important">
-                                    <a href="#" data-desc="{{ $item->description }}"data-sold="{{$item->sold}}" data-id="{{$item->id}}" data-original_price="{{$item->original_price}}" data-retail_price="{{$item->retail_price}}" data-stock="{{$item->stock}}" data-name="{{$item->name}}" data-toggle="modal" data-target="#showmoreinventory" class="btn btn-primary">More</a>
+                                    <a href="#"  data-sold="{{ $item->sold }}" data-desc="{{ $item->description }}"data-sold="{{$item->sold}}" data-id="{{$item->id}}" data-original_price="{{$item->original_price}}" data-retail_price="{{$item->retail_price}}" data-stock="{{$item->stock}}" data-name="{{$item->name}}" data-toggle="modal" data-target="#showmoreinventory" class="btn btn-primary">More</a>
                                     @if(Auth::user())
                                         <a href="#" data-desc="{{ $item->description }}"data-sold="{{$item->sold}}" data-id="{{$item->id}}" data-original_price="{{$item->original_price}}" data-retail_price="{{$item->retail_price}}" data-stock="{{$item->stock}}" data-name="{{$item->name}}" data-toggle="modal" data-target="#update-item" class="btn btn-primary">Update</a>
                                         <a type="button" href="#" data-id="{{$item->id}}" class="btn btn-primary delete">Delete</a>

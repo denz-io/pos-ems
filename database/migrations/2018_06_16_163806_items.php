@@ -16,10 +16,10 @@ class Items extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('description');
             $table->string('stock');
-            $table->string('sold');
+            $table->string('sold')->nullable();
             $table->string('original_price');
             $table->string('retail_price');
             $table->timestamps();

@@ -7,21 +7,18 @@ use App\Models\Item;
 
 class Inventory extends Controller
 {
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('inventory', ['items' => Item::all()]);
+        return view('inventory', ['items' => Item::orderBy('name')->get()]);
     }
 
     public function store(Request $request) 
     {
         $this->ValidateItems($request);
         $id = Item::create($request->all())->toArray()['id'];
-        $this->uploadProfilePic($request, $id);
+        if (isset($request->image)) {
+            $this->uploadProfilePic($request, $id);
+        }
         return redirect('/inventory');
     }
 
@@ -29,7 +26,9 @@ class Inventory extends Controller
     {
         $this->ValidateItems($request);
         Item::find($request->id)->update($request->all());
-        $this->uploadProfilePic($request, $request->id);
+        if (isset($request->image)) {
+            $this->uploadProfilePic($request, $request->id);
+        }
         return redirect('/inventory');
     }
 
@@ -49,7 +48,7 @@ class Inventory extends Controller
 
     public function ValidateItems($request) {
         $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'stock' => 'required|integer',
             'original_price' => 'required|integer',
             'retail_price' => 'required|integer',

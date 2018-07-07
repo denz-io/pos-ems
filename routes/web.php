@@ -13,7 +13,7 @@
 Auth::routes();
 Route::resource('/', 'Welcome');
 Route::resource('/home','Home');
-Route::resource('/point_of_sales','POS');
+Route::resource('/pos','POS');
 Route::resource('/inventory','Inventory');
 Route::post('/inventory/update','Inventory@update');
 Route::post('/inventory/destroy','Inventory@destroy');

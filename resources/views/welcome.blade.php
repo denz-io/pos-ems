@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="/point_of_sales">Point of Sales</a>
+                    <a href="/pos">Point of Sales</a>
                     <a href="/employee_logging">Employee Logging</a>
                 </div>
             </div>

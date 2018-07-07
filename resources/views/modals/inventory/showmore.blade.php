@@ -21,6 +21,10 @@
                         <label for="message-text" class="col-form-label">Description:</label>
                         <textarea style="height: 125px;" id="desc" name="description" class="form-control" id="message-text" readonly></textarea>
                       </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Units Sold:</label>
+                        <input type="text" id="sold" name="sold" class="form-control" readonly>
+                      </div>
                   </div>	
                   <div class="col-md-6">
                       <div class="form-group">
