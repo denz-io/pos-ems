@@ -25,7 +25,22 @@ class Home extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home', ['users' => User::all()]);
     }
 
+    public function createUser(Request $request) 
+    {
+       $this->ValidateUser($request);
+       User::create($request->all()); 
+       return redirect('/home');
+    }
+
+    public function ValidateUser($request) {
+        $this->validate($request, [
+            'rate' => 'required|integer',
+            'name' => 'required|string|max:100',
+            'username' => 'required|string|max:100',
+            'position' => 'required|string|max:100',
+        ]);
+    }
 }

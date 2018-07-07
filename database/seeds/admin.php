@@ -14,12 +14,14 @@ class admin extends Seeder
     public function run()
     {
         User::create([
-            'first_name' => 'test', 
-            'last_name'  => 'test', 
+            'name'  => 'admin', 
+            'phone'  => '0000', 
             'username'   => 'admin', 
+            'position'   => 'admin', 
             'password'   => 'admin', 
             'status'     => 'superadmin',
-            'rate'       => '0'
+            'rate'       => '0',
+            'is_loggedin' => '0',
         ]);        
     }
 }

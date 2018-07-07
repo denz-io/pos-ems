@@ -16,8 +16,9 @@
 
                 <div class="links">
                     <a href="/pos">Point of Sales</a>
-                    <a href="/employee_logging">Employee Logging</a>
+                    <a href="/employee_logging" data-toggle="modal" data-target="#employee-login">Employee Logging</a>
                 </div>
             </div>
         </div>
+        @include('modals.employee.login')
 @endsection
