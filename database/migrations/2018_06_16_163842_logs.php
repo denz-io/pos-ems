@@ -17,7 +17,8 @@ class Logs extends Migration
             $table->increments('id');
             $table->string('user_id');
             $table->string('time_in');
-            $table->string('time_out');
+            $table->string('time_out')->nullable();
+            $table->timestamps();
         });
     }
 

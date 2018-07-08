@@ -31,8 +31,11 @@ class Home extends Controller
     public function createUser(Request $request) 
     {
        $this->ValidateUser($request);
-       User::create($request->all()); 
-       return redirect('/home');
+       if (!User::where('username', $request->username)->first()) {
+           User::create($request->all()); 
+           return redirect('/home');
+       }
+       return redirect('/home')->withErrors(['createError' => 'Employee was not created! Username already exist!']);
     }
 
     public function ValidateUser($request) {
@@ -42,5 +45,18 @@ class Home extends Controller
             'username' => 'required|string|max:100',
             'position' => 'required|string|max:100',
         ]);
+    }
+
+    public function deleteUser($id) {
+        User::find($id)->delete();
+        return redirect('/home');
+    }
+
+    public function showPayroll($id) {
+        dd($id);
+    }
+
+    public function showLogs($id) {
+        dd($id);
     }
 }

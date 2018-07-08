@@ -35,11 +35,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function getLogs() 
-    {
-        return $this->hasMany('App\Models\Log', 'user_id');
-    }
-
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);

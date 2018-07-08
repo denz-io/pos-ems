@@ -16,7 +16,9 @@
 
                 <div class="links">
                     <a href="/pos">Point of Sales</a>
-                    <a href="/employee_logging" data-toggle="modal" data-target="#employee-login">Employee Logging</a>
+                    @if(!Auth::user())
+                        <a href="/employee_logging" data-toggle="modal" data-target="#employee-login">Employee Logging</a>
+                    @endif
                 </div>
             </div>
         </div>
