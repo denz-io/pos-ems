@@ -25,5 +25,6 @@ class Invoice extends Model
         'total_sales',
         'total_sales_vat',
         'amount_due',
+        'profit',
     ];
 }

@@ -1,6 +1,12 @@
 .inventoryimage { width: 120px; }
 
+.profileimage_nav { height: 50px; width: 50px; display:block; margin:auto;border-radius: 50%; }
+
+.profileimage { height: 100px; width: 100px; display:block; margin:auto;border-radius: 50%; }
+
 #items { text-align: center; }
 
 .error-message { color: white; font-weight: bold; padding: 5px; margin-bottom: 5px; background-color: #D10017; width: 100%; text-align: center; }
+
+.input-file { width: 50% }
 

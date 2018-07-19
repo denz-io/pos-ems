@@ -27,7 +27,7 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->name }}</td>
                             <td>
-                                <img class="inventoryimage" src="{{ asset('images/item_pics/' . $item->image)}}" alt="Update Image"></image>
+                                <img class="inventoryimage" src="{{ asset('images/item_pics/' . $item->image)}}" alt="Update Image"></img>
                             </td>
                             <td>{{ $item->stock }}</td>
                             <td>{{ $item->retail_price }} php</td>

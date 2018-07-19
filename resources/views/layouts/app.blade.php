@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/tables.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     @yield('css') 
 </head>
@@ -27,9 +28,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">EDV</a>
-                        </li>
+                        @if (Auth::user())
+                            @if (Auth::user()->position != 'admin')
+                                <li class="nav-item">
+                                     <a class="nav-link" href="/">
+                                        <img class="profileimage_nav" src="{{'images/profile_pics/' . Auth::user()->profile}}" alt="{{ Auth::user()->name }}"></img>
+                                    </a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">EDV</a>
+                                </li>
+                            @endif
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -51,7 +62,14 @@
                                     <a class="nav-link" href="/inventory">Inventory</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">Create a Report</a>
+                                    <a class="nav-link" href="/invoices">Invoices</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/report">Report</a>
+                                </li>
+                            @else 
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/home-employee">Manage Your Accounts</a>
                                 </li>
                             @endif
                             <li class="nav-item dropdown">
@@ -93,6 +111,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('js/tables.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     @yield('js') 

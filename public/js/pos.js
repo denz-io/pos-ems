@@ -2,6 +2,7 @@ var add_table = false;
 var request_items = '';
 var stock;
 var purchased = 0;
+var profit = 0;
 
 //Set table data to items to be purchased
 $('.add-item-btn').on( 'click',function () {
@@ -19,13 +20,19 @@ $('.add-item-btn').on( 'click',function () {
         if (index == 5) {
             table_data.push($(this.firstChild).val());
         }
-    });
 
+        if (index == 6) {
+            table_data.push($(this).text());
+        }
+    });
+    
     //Make sure that stock and purchases are correct values
     if ( parseInt($(stock).text()) >=  parseInt(table_data[4]) && parseInt(table_data[4]) != 0) {
         $(stock).text(parseInt($(stock).text()) - parseInt(table_data[4]));
-        table_data[5] =  parseInt(table_data[3]) * parseInt(table_data[4]);
-        purchased = table_data[5] + purchased;
+        table_data[5] =  parseInt(table_data[5]) * parseInt(table_data[4]);
+        table_data[6] =  parseInt(table_data[3]) * parseInt(table_data[4]);
+        profit = parseInt(table_data[5]) + profit;
+        purchased = table_data[6] + purchased;
         add_table = true;
     } else {
         alert('Invalid Transaction!');
@@ -38,14 +45,14 @@ $('.add-item-btn').on( 'click',function () {
 
     //Add data to invoice table if data matches what is needed 
     if (add_table) {
-        $('.tbl-pos tr:last').after('<tr><td>' + table_data[1] + '</td><td>' + table_data[3] + '</td><td>' + table_data[4] + '</td><td>' + table_data[5] + '</td></tr>');
+        $('.tbl-pos tr:last').after('<tr><td>' + table_data[1] + '</td><td>' + table_data[3] + '</td><td>' + table_data[4] + '</td><td>' + table_data[6] + '</td></tr>');
     }
     calculateTransactions();
 });
 
 $('#given_amount').keypress(function (e) {
     if (e.which == 13) {
-        if($(this).val() >= purchased && $(this).val() > 0) {
+        if($(this).val() >= $(amount_due).val() && $(this).val() > 0) {
             calculateTransactions();
             if(confirm('Customers Change is: ' + $('#change').val())) {
                 saveTransaction();
@@ -63,6 +70,7 @@ function saveTransaction() {
 function calculateTransactions() {
     if (purchased) {
         $('#amount_total').val(purchased);
+        $('#profit').val(purchased - profit );
         $('#amount_vat').val(money_multiply(purchased, 0.12));
         $('#amount_due').val(purchased + money_multiply(purchased, 0.12));
         if($('#given_amount').val() >= purchased && $('#given_amount').val() > 0) {

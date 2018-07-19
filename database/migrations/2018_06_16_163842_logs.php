@@ -16,8 +16,11 @@ class Logs extends Migration
         Schema::create('logs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_id');
+            $table->string('paystub_id')->nullable();
             $table->string('time_in');
             $table->string('time_out')->nullable();
+            $table->string('hrs_worked')->nullable(); 
+            $table->integer('pay')->nullable();
             $table->timestamps();
         });
     }

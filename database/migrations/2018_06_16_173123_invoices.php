@@ -22,10 +22,11 @@ class Invoices extends Migration
             $table->string('address')->nullable();
             $table->string('invoice_number');
             $table->string('terms')->nullable();
-            $table->integer('amount_given');
-            $table->integer('total_sales');
-            $table->integer('total_sales_vat');
-            $table->integer('amount_due');
+            $table->string('amount_given');
+            $table->string('total_sales');
+            $table->string('total_sales_vat');
+            $table->string('amount_due');
+            $table->string('profit');
             $table->timestamps();
         });
     }

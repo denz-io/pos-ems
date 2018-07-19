@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Invoice;
-use App\Models\Item;
+use App\Models\{Invoice, Item};
 
 class POS extends Controller
 {

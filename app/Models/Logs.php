@@ -13,7 +13,10 @@ class Logs extends Model
      */
     protected $fillable = [
         'user_id', 
+        'paystub_id',
         'time_in', 
         'time_out', 
+        'hrs_worked', 
+        'pay', 
     ];
 }

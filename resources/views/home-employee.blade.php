@@ -6,19 +6,30 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="card">
-                    <div class="card-header">Log out </div>
+                    <div class="card-header">Your Options</div>
                     <div class="card-body">
-                        <div><button type="button" data-toggle="modal" data-target="#employee-create" class="btn-custom btn btn-primary">Punch Out</button></div>
+                        <div>
+                            @if (Auth::user()->is_loggedin)
+                                <a href="/attendance" class="btn-custom btn btn-warning">Punch Out</a>
+                            @else
+                                <a href="/attendance" class="btn-custom btn btn-primary">Punch In</a>
+                            @endif
+                        </div>
+                        <br>
+                        
+                        <div>
+                            <button type="button" data-toggle="modal" data-target="#employee-create" class="btn-custom btn btn-success">Pay Stubs</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">Your Logs</div>
                     <div class="card-body">
-			<table class="table table-striped" id="users" style="width:100%">
+			<table class="table table-striped" id="users" style="width:100%; text-align: center;">
 			  <thead>
 			    <tr>
 			      <th scope="col">Punch-in</th>
@@ -31,7 +42,7 @@
                                 <tr>
                                   <td>{{$log->time_in}}</td>
                                   <td>{{$log->time_out ? $log->time_out:'' }}</td>
-                                  <td>{{$log->time_out ? $log->time_out:'' }}</td>
+                                  <td>{{Carbon::parse($log->time_out ? Carbon::parse($log->time_out) : Carbon::now())->diff(Carbon::parse($log->time_in))->format('%H hr %I min')}}</td>
                                 </tr>
 			    @endforeach
 			  </tbody>

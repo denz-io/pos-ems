@@ -19,33 +19,27 @@
                 <div class="card">
                     <div class="card-header">Employee List</div>
                     <div class="card-body">
-			<table class="table table-striped" id="users" style="width:100%">
+			<table class="table table-striped" id="users" style="width:100%; text-align: center;">
 			  <thead>
 			    <tr>
 			      <th scope="col">Username</th>
 			      <th scope="col">Name</th>
-			      <th scope="col">Phone#</th>
-			      <th scope="col">Position</th>
-			      <th scope="col">Rate</th>
 			      <th scope="col">Is Punched-in</th>
 			      <th scope="col">Options</th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			    @foreach($users as $user) 
-				@if($user->status != 'superadmin')
+				@if($user->status != 'admin')
 				    <tr>
-				      <th scope="row">{{$user->username}}</th>
+				      <td scope="row">{{$user->username}}</td>
 				      <td>{{$user->name}}</td>
-				      <td>{{$user->phone}}</td>
-				      <td>{{$user->position}}</td>
-				      <td>{{$user->rate}} php/hr</td>
 				      @if ($user->is_loggedin) 
 					  <td><button type="button" class="btn-custom btn btn-success">Yes</button></td>
 				      @else
 					  <td><button type="button" class="btn-custom btn btn-warning">No</button></td>
 				      @endif
-				      <td><button type="button" data-id="{{$user->id}}" data-toggle="modal" data-target="#employeeoptions" class="btn-custom btn btn-primary more-button">More</button></td>
+				      <td><button type="button" data-profile="{{$user->profile}}" data-name="{{$user->name}}" data-username="{{$user->username}}" data-status="{{$user->status}}" data-rate="{{$user->rate}}" data-phone="{{$user->phone}}" data-id="{{$user->id}}" data-toggle="modal" data-target="#employeeoptions" class="btn-custom btn btn-primary more-button">More</button></td>
 				    </tr>
 				@endif
 			    @endforeach

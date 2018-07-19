@@ -49,6 +49,15 @@
                     <input type="hidden" name="is_loggedin" value="0" required>
                 </div>
             </div>
+            <div class="row">
+                <div class="form-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            <input style="width:50%;"type="file" name="image" multiple>
+                        </span>
+                    </span>
+                </div>
+            </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Save</button>
