@@ -34,11 +34,7 @@
 				    <tr>
 				      <td scope="row">{{$user->username}}</td>
 				      <td>{{$user->name}}</td>
-				      @if ($user->is_loggedin) 
-					  <td><button type="button" class="btn-custom btn btn-success">Yes</button></td>
-				      @else
-					  <td><button type="button" class="btn-custom btn btn-warning">No</button></td>
-				      @endif
+					  <td><a href="/home/attendance/{{$user->id}}" type="button" class="btn-custom btn {{$user->is_loggedin ? 'btn-success' : 'btn-warning' }}">{{ $user->is_loggedin ? 'Yes' : 'No' }}</a></td>
 				      <td><button type="button" data-profile="{{$user->profile}}" data-name="{{$user->name}}" data-username="{{$user->username}}" data-status="{{$user->status}}" data-rate="{{$user->rate}}" data-phone="{{$user->phone}}" data-id="{{$user->id}}" data-toggle="modal" data-target="#employeeoptions" class="btn-custom btn btn-primary more-button">More</button></td>
 				    </tr>
 				@endif

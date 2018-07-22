@@ -26,6 +26,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::post('/home/create','Home@createUser');
     Route::post('/home/update','Home@updateUser');
     Route::get('/home/delete/{id}','Home@deleteUser');
+    Route::get('/home/attendance/{id}','Home@attendance');
 
     Route::resource('/report','Report');
 

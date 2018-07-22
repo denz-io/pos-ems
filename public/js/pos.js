@@ -28,26 +28,32 @@ $('.add-item-btn').on( 'click',function () {
     
     //Make sure that stock and purchases are correct values
     if ( parseInt($(stock).text()) >=  parseInt(table_data[4]) && parseInt(table_data[4]) != 0) {
+
         $(stock).text(parseInt($(stock).text()) - parseInt(table_data[4]));
+        table_data[2] = $(stock).text(); 
         table_data[5] =  parseInt(table_data[5]) * parseInt(table_data[4]);
         table_data[6] =  parseInt(table_data[3]) * parseInt(table_data[4]);
         profit = parseInt(table_data[5]) + profit;
         purchased = table_data[6] + purchased;
         add_table = true;
+
+        //Concatinate array into an array string so that it can be saved into database
+        request_items = request_items + ( request_items == '' ? '' : ';') + table_data.toString();  
+
+        console.log(request_items);
+
+        $('#item').val( request_items );
+
+        //Add data to invoice table if data matches what is needed 
+        if (add_table) {
+            $('.tbl-pos tr:last').after('<tr><td>' + table_data[1] + '</td><td>' + table_data[3] + '</td><td>' + table_data[4] + '</td><td>' + table_data[6] + '</td></tr>');
+        }
+        calculateTransactions();
+
     } else {
+
         alert('Invalid Transaction!');
     }
-
-    //Concatinate array into an array string so that it can be saved into database
-    request_items = request_items + ( request_items == '' ? '' : ';') + table_data.toString();  
-
-    $('#item').val( request_items );
-
-    //Add data to invoice table if data matches what is needed 
-    if (add_table) {
-        $('.tbl-pos tr:last').after('<tr><td>' + table_data[1] + '</td><td>' + table_data[3] + '</td><td>' + table_data[4] + '</td><td>' + table_data[6] + '</td></tr>');
-    }
-    calculateTransactions();
 });
 
 $('#given_amount').keypress(function (e) {

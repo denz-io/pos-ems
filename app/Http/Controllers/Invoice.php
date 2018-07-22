@@ -31,6 +31,7 @@ class Invoice extends Controller
         } else {
             $items_array[0]  = explode(',', $items);
         }
+
         return $items_array;
     }
 }

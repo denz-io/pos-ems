@@ -52,17 +52,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div><a onClick="updateUser()" type="button" href="#" class="btn-custom btn btn-warning">Update User</a></div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div><a onClick="deleteUser()" type="button" href="#" class="btn-custom btn btn-danger">Delete User</a></div>
                 </div>
-                <div class="col-md-3">
-                    <div><a id="logs_user" type="button" href="#" class="btn-custom btn btn-primary">Current Logs</a></div>
-                </div>
-                <div class="col-md-3">
-                    <div><a id="payroll_user" type="button" href="#" class="btn-custom btn btn-success">Payroll</a></div>
+                <div class="col-md-4">
+                    <div><a id="logs_user" type="button" href="#" class="btn-custom btn btn-primary">Payroll</a></div>
                 </div>
             </div>
           </div>

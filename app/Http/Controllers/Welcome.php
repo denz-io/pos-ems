@@ -20,10 +20,19 @@ class Welcome extends Controller
 
     public function employeeLogin(Request $request) 
     {
-        if (Auth::attempt(['username'=> $request->username, 'password'=> $request->password])) {
-            return redirect('/home-employee'); 
+        if(Auth::attempt(['username'=> $request->username, 'password'=> $request->password])) {
+            return $this->checkStatus();
         }
         return redirect('/')->withErrors(['login-Error' => 'These credentials do not match our records.']); 
+    }
+
+    private function checkStatus() 
+    {
+        if (Auth::user()->status != 'admin') {
+            return redirect('/home-employee'); 
+        }
+        Auth::logout();
+        return redirect('/')->withErrors(['login-Error' => 'Only employees can login here.']); 
     }
 
 }

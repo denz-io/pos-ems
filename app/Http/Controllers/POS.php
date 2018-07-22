@@ -35,7 +35,7 @@ class POS extends Controller
         } else {
             $items_array  = explode(',', $items);
             $inventory = Item::find($items_array[0]); 
-            $inventory->update([ 'stock' => $items_array[3], 'sold' => $inventory->sold + $items_array[4] ]); 
+            $inventory->update([ 'stock' => $items_array[2], 'sold' => $inventory->sold + $items_array[4] ]); 
         }
     }
 
@@ -43,7 +43,7 @@ class POS extends Controller
     {
         foreach($items as $item) {
             $inventory = Item::find($item[0]); 
-            $inventory->update([ 'stock' => $item[3], 'sold' =>  $inventory->sold + $item[4] ]);
+            $inventory->update([ 'stock' => $item[2], 'sold' =>  $inventory->sold + $item[4] ]);
         }
     }
 }

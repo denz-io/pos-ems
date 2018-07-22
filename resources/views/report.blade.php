@@ -39,8 +39,8 @@
                                     <th>#</th>
                                     <th>Start</th>
                                     <th>End</th>
-                                    <th>Total Amount</th>
-                                    <th>Total Earned</th>
+                                    <th>Total Sales</th>
+                                    <th>Profit</th>
                                     <th>Options</th>
                                 </tr>
                             </thead>
@@ -53,7 +53,7 @@
                                         <td>{{ $report->total_amount }} php</td>
                                         <td>{{ $report->total_earned }} php</td>
                                         <td>
-                                            <a type="button" href="#" data-id="{{$item->id}}" class="btn btn-primary delete">View Invoices</a>
+                                            <a type="button" href="report/{{$report->id}}" class="btn btn-primary delete">More</a>
                                         </td>
                                     </tr>
                                 @endforeach

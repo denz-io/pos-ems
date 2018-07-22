@@ -40,6 +40,10 @@
                                     <a class="nav-link" href="/">EDV</a>
                                 </li>
                             @endif
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">EDV</a>
+                            </li>
                         @endif
                     </ul>
 
@@ -54,7 +58,7 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Admin Login') }}</a>
                             </li>
                         @else
-                            @if(Auth::user()->status == 'superadmin')
+                            @if(Auth::user()->status == 'admin')
                                 <li class="nav-item">
                                     <a class="nav-link" href="/home">Manage Employees</a>
                                 </li>

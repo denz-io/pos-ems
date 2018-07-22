@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\{ User, Logs };
 use Auth;
+use Carbon\Carbon;
+
 
 class Home extends Controller
 {
@@ -22,13 +24,16 @@ class Home extends Controller
     {
        $this->ValidateUser($request);
        if (!User::where('username', $request->username)->first()) {
-           $id = User::create($request->all())->toArray()['id']; 
-           if (isset($request->image)) {
-               $this->uploadProfilePic($request, $id);
-           }
-           return redirect('/home');
+           $this->isUsernameSet($request);
        }
        return redirect('/home')->withErrors(['createError' => 'Employee was not created! Username already exist!']);
+    }
+
+    private function isUsernameSet($request)
+    {
+       $id = User::create($request->all())->toArray()['id']; 
+       $this->isProfilePicSet($request, $id);
+       return redirect('/home');
     }
 
     public function deleteUser($id) {
@@ -39,21 +44,28 @@ class Home extends Controller
     public function updateUser(Request $request) {
 
         $user = User::find($request->id);
+        $this->checkUpdate($request, $user);
+        $this->isProfilePicSet($request, $request->id);
+        return redirect('/home');
+    }
 
+    private function checkUpdate($request, $user) 
+    {
         if (!isset($request->password)) {
             $user->update($request->except(['password']));
         } else {
             $user->update($request->all());
         }
-
-        if (isset($request->image)) {
-           $this->uploadProfilePic($request, $request->id);
-        }
-
-        return redirect('/home');
     }
 
-    public function uploadProfilePic($request, $id)
+    private function isProfilePicSet($request, $id)
+    {
+        if (isset($request->image)) {
+           $this->uploadProfilePic($request, $id);
+        }
+    }
+
+    private function uploadProfilePic($request, $id)
     {
         $image = $request->file('image');
         $image_name = $id . '_item.' . $image->getClientOriginalExtension();
@@ -61,7 +73,7 @@ class Home extends Controller
         User::find($id)->update(['profile' => $image_name]);
     }
 
-    public function ValidateUser($request) {
+    private function ValidateUser($request) {
         $this->validate($request, [
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'rate' => 'required|integer',
@@ -71,11 +83,32 @@ class Home extends Controller
         ]);
     }
 
-    public function showPayroll($id) {
-        dd($id);
+    public function attendance($id) 
+    {
+        $user = User::find($id);
+        $this->logStatus($user);
+        $user->update([ 'is_loggedin' => $user->is_loggedin ? 0 : 1 ]);
+        return redirect('/home-employee');
     }
 
-    public function showLogs($id) {
-        dd($id);
+    private function logStatus($user)
+    {
+        $user->is_loggedin ?  $this->punchout($user->id) : $this->punchin($user->id);
+    }
+
+    private function punchout($id)
+    {
+        foreach(Logs::where(['user_id' => $id,'time_out' => null])->get() as $log) {
+            $log->time_out = Carbon::now();
+            $log->save();
+        }
+    }
+
+    private function punchin($id)
+    {
+        Logs::create([
+            'user_id' => $id, 
+            'time_in' => Carbon::now(), 
+        ]);
     }
 }

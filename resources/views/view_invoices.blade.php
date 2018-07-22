@@ -85,7 +85,7 @@
                         @foreach ($items as $item)
                           <tr>
                               <td>{{ $item[1] }}</td>
-                              <td>{{ $item[2] }}</td>
+                              <td>{{ $item[3] }}</td>
                               <td>{{ $item[4] }}</td>
                               <td>{{ $item[6] }}</td>
                           </tr>
