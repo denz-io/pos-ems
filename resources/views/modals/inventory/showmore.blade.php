@@ -15,32 +15,42 @@
                   <div class="col-md-6">
                       <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Item Name:</label>
-                        <input type="text" id="name" name="name" class="form-control" readonly>
-                      </div>
-                      <div class="form-group">
-                        <label for="message-text" class="col-form-label">Description:</label>
-                        <textarea style="height: 125px;" id="desc" name="description" class="form-control" id="message-text" readonly></textarea>
+                        <input type="text" id="name" name="name" class="custom-input" readonly>
                       </div>
                       <div class="form-group">
                         <label for="message-text" class="col-form-label">Units Sold:</label>
-                        <input type="text" id="sold" name="sold" class="form-control" readonly>
+                        <input type="text" id="sold" name="sold" class="custom-input" readonly>
                       </div>
                   </div>	
                   <div class="col-md-6">
                       <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Stock QTY:</label>
-                        <input type="text" id="stock" name="stock" class="form-control" readonly>
+                        <input type="text" id="stock" name="stock" class="custom-input" readonly>
                       </div>
+                      <div class="row"> 
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Original Price:</label>
+                                <input type="text" id="original_price" name="original_price" class="custom-input" readonly>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Retail Price:</label>
+                                <input type="text" id="retail_price" name="retail_price" class="custom-input" readonly>
+                              </div>
+                              <input type="hidden" id="sold" name="sold" value="0" class="form-control" readonly>
+                          </div>	
+                      </div>	
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
                       <div class="form-group">
-                        <label for="message-text" class="col-form-label">Original Price:</label>
-                        <input type="text" id="original_price" name="original_price" class="form-control" readonly>
+                        <label for="message-text" class="col-form-label">Description:</label>
+                        <textarea style="height: 125px;" id="desc" name="description" class="custom-input" id="message-text" readonly></textarea>
                       </div>
-                      <div class="form-group">
-                        <label for="message-text" class="col-form-label">Retail Price:</label>
-                        <input type="text" id="retail_price" name="retail_price" class="form-control" readonly>
-                      </div>
-                      <input type="hidden" id="sold" name="sold" value="0" class="form-control" readonly>
-                  </div>	
+                  </div>
               </div>
           </div>
           <div class="modal-footer">

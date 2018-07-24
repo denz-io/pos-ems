@@ -19,11 +19,6 @@ class Employee
         if (!Auth::user()) {
             return redirect('/');
         }
-
-        if (Auth::user()->status == 'admin') {
-            return redirect('/home');
-        }
-
         return $next($request);
     }
 }

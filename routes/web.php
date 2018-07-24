@@ -15,11 +15,6 @@ Auth::routes();
 
 Route::resource('/', 'Welcome');
 Route::post('/home-employee/login','Welcome@employeeLogin');
-Route::resource('/pos','POS');
-
-Route::resource('/inventory','Inventory');
-Route::post('/inventory/update','Inventory@update');
-Route::post('/inventory/destroy','Inventory@destroy');
 
 Route::group(['middleware' => 'admin'], function() {
     Route::resource('/home','Home');
@@ -29,13 +24,23 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/home/attendance/{id}','Home@attendance');
 
     Route::resource('/report','Report');
+    Route::get('/report/delete/{id}','Report@delete');
 
-    Route::resource('/invoices','Invoice');
+    Route::resource('/payroll','Payroll');
 });
 
 Route::group(['middleware' => 'employee'], function() {
+    Route::resource('/pos','POS');
+
+    Route::resource('/inventory','Inventory');
+    Route::post('/inventory/update','Inventory@update');
+    Route::post('/inventory/destroy','Inventory@destroy');
+
     Route::resource('/home-employee','HomeEmployees');
     Route::get('/attendance','HomeEmployees@attendance');
+
+    Route::resource('/invoices','Invoice');
+    Route::get('/invoices/delete/{id}','Invoice@delete');
 });
 
 

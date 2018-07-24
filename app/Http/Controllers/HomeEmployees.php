@@ -16,7 +16,10 @@ class HomeEmployees extends Controller
      */
     public function index()
     {
-        return view('home-employee', ['logs' => Logs::where('user_id', Auth::user()->id)->get()]);
+        if (Auth::user()->status != 'admin') {
+            return view('home-employee', ['logs' => Logs::where('user_id', Auth::user()->id)->where('paystub_id', null)->get()]);
+        }
+        return redirect()->back()->withErrors([ 'error' => 'Access-denied.']);
     }
 
     public function attendance() 

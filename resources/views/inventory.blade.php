@@ -33,10 +33,10 @@
                             <td>{{ $item->retail_price }} php</td>
                             <td>
                                 <div style="color: #fff !important">
-                                    <a href="#"  data-sold="{{ $item->sold }}" data-desc="{{ $item->description }}"data-sold="{{$item->sold}}" data-id="{{$item->id}}" data-original_price="{{$item->original_price}}" data-retail_price="{{$item->retail_price}}" data-stock="{{$item->stock}}" data-name="{{$item->name}}" data-toggle="modal" data-target="#showmoreinventory" class="btn btn-primary">More</a>
+                                    <a href="#"  data-sold="{{ $item->sold }}" data-desc="{{ $item->description }}"data-sold="{{$item->sold}}" data-id="{{$item->id}}" data-original_price="{{$item->original_price}}" data-retail_price="{{$item->retail_price}}" data-stock="{{$item->stock}}" data-name="{{$item->name}}" data-toggle="modal" data-target="#showmoreinventory" class="btn btn-success">More</a>
                                     @if(Auth::user())
                                         <a href="#" data-desc="{{ $item->description }}"data-sold="{{$item->sold}}" data-id="{{$item->id}}" data-original_price="{{$item->original_price}}" data-retail_price="{{$item->retail_price}}" data-stock="{{$item->stock}}" data-name="{{$item->name}}" data-toggle="modal" data-target="#update-item" class="btn btn-primary">Update</a>
-                                        <a type="button" href="#" data-id="{{$item->id}}" class="btn btn-primary delete">Delete</a>
+                                        <a type="button" href="#" data-id="{{$item->id}}" class="btn btn-danger delete">Delete</a>
                                     @endif
                                 </div>
                             </td>

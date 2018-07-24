@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Logs extends Migration
+class CreatePayrollsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class Logs extends Migration
      */
     public function up()
     {
-        Schema::create('logs', function (Blueprint $table) {
+        Schema::create('payrolls', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_id');
-            $table->string('paystub_id')->nullable();
-            $table->string('time_in');
-            $table->string('time_out')->nullable();
+            $table->string('start_date');
+            $table->string('end_date');
+            $table->string('payout');
+            $table->string('total_hrs');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class Logs extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logs');
+        Schema::dropIfExists('payrolls');
     }
 }

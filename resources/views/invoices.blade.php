@@ -25,12 +25,13 @@
                                 @foreach($invoices as $invoice)
                                     <tr>
                                         <td>{{ $invoice->invoice_number }}</td>
-                                        <td>{{ $invoice->created_at }}</td>
+                                        <td>{{ Carbon::parse($invoice->created_at)->format('F j Y, g:i a') }}</td>
                                         <td>{{ $invoice->total_sales}}</td>
                                         <td>{{ $invoice->profit}}</td>
                                         <td>{{ $invoice->amount_given}}</td>
                                         <td>
                                             <a type="button" href="{{ '/invoices/' . $invoice->id }}" class="btn btn-primary">More</a>
+                                            <a type="button" data-id="{{$invoice->id}}" href="#" class="delete_invoice btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -44,4 +45,5 @@
 @endsection
 
 @section('js')
+    <script src="{{ asset('js/invoice.js') }}"></script>
 @endsection

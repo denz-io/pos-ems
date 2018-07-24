@@ -29,7 +29,7 @@ class Welcome extends Controller
     private function checkStatus() 
     {
         if (Auth::user()->status != 'admin') {
-            return redirect('/home-employee'); 
+            return redirect('/'); 
         }
         Auth::logout();
         return redirect('/')->withErrors(['login-Error' => 'Only employees can login here.']); 

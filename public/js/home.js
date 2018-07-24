@@ -10,7 +10,7 @@ $('#employeeoptions').on('show.bs.modal', function (event) {
     $("#rate").val($(event.relatedTarget).data('rate'));
     $("#status").val($(event.relatedTarget).data('status'));
     $("#id").val($(event.relatedTarget).data('id'));
-
+    $("#logs_user").attr('href',"/payroll/" + $(event.relatedTarget).data('id'));
     //set employee id for options
     id = $(event.relatedTarget).data('id');
 });

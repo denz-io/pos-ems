@@ -17,29 +17,29 @@
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Name:</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
+                        <input class="custom-input" type="text" id="name" name="name" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Username:</label>
-                        <input type="text" id="username" name="username" class="form-control" required>
+                        <input class="custom-input" type="text" id="username" name="username" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Phone:</label>
-                        <input type="text" id="phone" name="phone" class="form-control" required>
+                        <input class="custom-input" type="text" id="phone" name="phone" class="form-control" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Status:</label>
-                        <input type="text" id="status" name="status" class="form-control" required>
+                        <input class="custom-input" type="text" id="status" name="status" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Rate:</label>
-                        <input type="text" id="rate" name="rate" class="form-control" required>
+                        <input class="custom-input" type="text" id="rate" name="rate" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Password:</label>
-                        <input type="password" id="password" name="password" class="form-control">
+                        <input class="custom-input" type="password" id="password" name="password" class="form-control">
                         <input type="hidden" id="id" name="id" class="form-control">
                     </div>
                     <div class="form-group">

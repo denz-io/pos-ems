@@ -17,8 +17,11 @@ class Report extends Controller
 
     public function store(Request $request) 
     {
-        Reports::create($this->setReportData($this->getFilteredInvoices($request)));
-        return redirect('/report');
+        if ($new_report = $this->setReportData($this->getFilteredInvoices($request), $request)) {
+            Reports::create($new_report);
+            return redirect('/report');
+        }
+        return redirect()->back()->withErrors([ 'error' => 'There are no invoices recorded between these dates.']);;
     }
 
     public function show($id)
@@ -28,6 +31,12 @@ class Report extends Controller
             return view('invoices_by_report', ['report' => $report,'invoices' => $this->getFilteredInvoices($report)]);
         }
         return redirect('/report')->withErrors([ 'error' => 'The report does not exist!']);
+    }
+
+    public function delete($id)
+    {
+        Reports::find($id)->delete();
+        return redirect()->back();
     }
 
     private function getFilteredInvoices($request) 
@@ -53,10 +62,14 @@ class Report extends Controller
     /**
      *filter invoices using dates
      */
-    private function setReportData($data) 
+    private function setReportData($data, $request) 
     {
         $sales = 0;
         $profit = 0;
+
+        if (!count($data)) {
+            return;
+        }
 
         foreach ($data as $invoice) {
             $sales = $sales + $invoice->amount_due;
@@ -64,11 +77,11 @@ class Report extends Controller
         }
 
         return [
-            'report_start' => $data[0]->created_at,
-            'report_end'   => $data[count($data)-1]->created_at,
+            'report_start' => $request->report_start,
+            'report_end'   => $request->report_end,
             'user_id'      => Auth::user()->id,
-            'total_amount' => $sales,
-            'total_earned' => $profit
+            'total_amount' => round($sales, 2),
+            'total_earned' => round($profit,2)
         ];
     }
 }

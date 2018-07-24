@@ -40,8 +40,8 @@
 			  <tbody>
 			    @foreach($logs as $log) 
                                 <tr>
-                                  <td>{{$log->time_in}}</td>
-                                  <td>{{$log->time_out ? $log->time_out:'' }}</td>
+                                  <td>{{Carbon::parse($log->time_in)->format('F j Y, g:i a')}}</td>
+                                  <td>{{$log->time_out ? Carbon::parse($log->time_out)->format('F j Y, g:i a'):'' }}</td>
                                   <td>{{Carbon::parse($log->time_out ? Carbon::parse($log->time_out) : Carbon::now())->diff(Carbon::parse($log->time_in))->format('%H hr %I min')}}</td>
                                 </tr>
 			    @endforeach

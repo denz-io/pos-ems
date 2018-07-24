@@ -6,32 +6,41 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12" style="padding-top: 30px;">
+            <div class="col-md-6" style="padding-top: 30px;">
                 <div class="card">
-                    <div class="card-header">Report Details</div>
+                    <div class="card-header">Report Timeline</div>
                     <div class="card-body">
                         <div class="row" style="text-align: center;">
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label><b>Start:</b></label>
                                     </div>
                                     <div class="col-md-9">
-                                        {{$report->report_start}}
+                                        {{Carbon::parse($report->report_start)->format('F j Y, g:i a')}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label><b>End:</b></label>
                                     </div>
                                     <div class="col-md-9">
-                                        {{$report->report_end}}
+                                        {{Carbon::parse($report->report_end)->format('F j Y, g:i a')}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="padding-top: 30px;">
+                <div class="card">
+                    <div class="card-header">Profit Details</div>
+                    <div class="card-body">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label><b>Sales:</b></label>
@@ -41,7 +50,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <label><b>Profit:</b></label>
@@ -62,7 +71,7 @@
                         <table id="items" class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>Invoice #</th>
                                     <th>Created at</th>
                                     <th>Sales</th>
                                     <th>Profit</th>
@@ -74,7 +83,7 @@
                                 @foreach($invoices as $invoice)
                                     <tr>
                                         <td>{{ $invoice->invoice_number }}</td>
-                                        <td>{{ $invoice->created_at }}</td>
+                                        <td>{{ Carbon::parse($invoice->created_at)->format('F j Y, g:i a') }}</td>
                                         <td>{{ $invoice->total_sales}}</td>
                                         <td>{{ $invoice->profit}}</td>
                                         <td>{{ $invoice->amount_given}}</td>

@@ -21,6 +21,12 @@ class Invoice extends Controller
         return back()->withErrors(['error' => 'Invoice does not exist!']);
     }
 
+    public function delete($id)
+    {
+        Invoices::find($id)->delete();
+        return redirect()->back();
+    }
+
     private function getItems($items) 
     {
         if (strpos($items, ';')) {

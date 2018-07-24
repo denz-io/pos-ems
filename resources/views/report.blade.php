@@ -48,12 +48,13 @@
                                 @foreach($reports as $report)
                                     <tr>
                                         <td>{{ $report->id }}</td>
-                                        <td>{{ $report->report_start }}</td>
-                                        <td>{{ $report->report_end }}</td>
+                                        <td>{{ Carbon::parse($report->report_start)->format('F j Y, g:i a') }}</td>
+                                        <td>{{ Carbon::parse($report->report_end)->format('F j Y, g:i a') }}</td>
                                         <td>{{ $report->total_amount }} php</td>
                                         <td>{{ $report->total_earned }} php</td>
                                         <td>
-                                            <a type="button" href="report/{{$report->id}}" class="btn btn-primary delete">More</a>
+                                            <a type="button" href="report/{{$report->id}}" class="btn btn-primary">More</a>
+                                            <a type="button" data-id="{{$report->id}}" href="#" class="delete_report btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -67,4 +68,5 @@
 @endsection
 
 @section('js')
+    <script src="{{asset('js/report.js')}}"></script>    
 @endsection

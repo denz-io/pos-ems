@@ -14,37 +14,37 @@
             <div class="form-group row">
                 <label for="password" class="col-md-4 col-form-label text-md-right">Employee Name</label>
                 <div class="col-md-6">
-                    <input id="text" type="text" name="name" required>
+                    <input class="custom-input" id="text" type="text" name="name" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="password" class="col-md-4 col-form-label text-md-right">Phonenumber</label>
                 <div class="col-md-6">
-                    <input id="text" type="text" name="phone" required>
+                    <input class="custom-input" id="text" type="text" name="phone" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="password" class="col-md-4 col-form-label text-md-right">Position</label>
                 <div class="col-md-6">
-                    <input id="text" type="text" name="position" required>
+                    <input class="custom-input" id="text" type="text" name="position" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="password" class="col-md-4 col-form-label text-md-right">Rate/Hour</label>
                 <div class="col-md-6">
-                    <input id="text" type="number" name="rate" required>
+                    <input class="custom-input" id="text" type="number" name="rate" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="password" class="col-md-4 col-form-label text-md-right">Username</label>
                 <div class="col-md-6">
-                    <input id="text" type="text" name="username" required>
+                    <input class="custom-input" id="text" type="text" name="username" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                 <div class="col-md-6">
-                    <input id="password" type="password" name="password" required>
+                    <input class="custom-input" id="password" type="password" name="password" required>
                     <input type="hidden" name="status" value="employee" required>
                     <input type="hidden" name="is_loggedin" value="0" required>
                 </div>

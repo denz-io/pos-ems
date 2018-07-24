@@ -52,28 +52,29 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="/inventory">Inventory</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Admin Login') }}</a>
                             </li>
                         @else
                             @if(Auth::user()->status == 'admin')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/home">Manage Employees</a>
+                                    <a class="nav-link" href="/home">Employees</a>
                                 </li>
+                            @endif
+                            @if(Auth::user())
                                 <li class="nav-item">
                                     <a class="nav-link" href="/inventory">Inventory</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/invoices">Invoices</a>
                                 </li>
+                            @endif
+                            @if(Auth::user()->status != 'admin')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/home-employee">My Account</a>
+                                </li>
+                            @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="/report">Report</a>
-                                </li>
-                            @else 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/home-employee">Manage Your Accounts</a>
                                 </li>
                             @endif
                             <li class="nav-item dropdown">

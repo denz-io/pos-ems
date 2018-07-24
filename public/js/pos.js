@@ -77,7 +77,7 @@ function calculateTransactions() {
     if (purchased) {
         $('#amount_total').val(purchased);
         $('#profit').val(purchased - profit );
-        $('#amount_vat').val(money_multiply(purchased, 0.12));
+        $('#amount_vat').val(money_multiply(purchased, 0.12) / 1.12);
         $('#amount_due').val(purchased + money_multiply(purchased, 0.12));
         if($('#given_amount').val() >= purchased && $('#given_amount').val() > 0) {
             $('#change').val((parseInt($('#given_amount').val()) - (purchased + money_multiply(purchased, 0.12))).toFixed(2));
