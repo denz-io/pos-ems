@@ -37,7 +37,7 @@
                         </td>
                         <td style="display:none;">{{ $item->original_price }}</td>
                         <td>
-                            <a href="#" type="button" data-id="{{$item->id}}" class="btn btn-primary add-item-btn">Add</a>
+                            <button type="button" data-id="{{$item->id}}" class="btn btn-primary add-item-btn">Add</button>
                         </td>
                     </tr>
                 @endforeach

@@ -77,14 +77,13 @@
                     <div class="table-container">
                         <table class="table table-striped tbl-pos">
                           <thead>
-                            <tr>
-                              <th scope="col">UNIT</th>
-                              <th scope="col">UNIT PRICE</th>
-                              <th scope="col">QTY</th>
-                              <th scope="col">AMOUNT</th> </tr>
+                              <tr>
+                                  <th scope="col">UNIT</th>
+                                  <th scope="col">UNIT PRICE</th>
+                                  <th scope="col">QTY</th>
+                                  <th scope="col">AMOUNT</th> 
+                              </tr>
                           </thead>
-                          <tbody id="transaction_items">
-                          </tbody>
                         </table>
                     </div>
                 </div>

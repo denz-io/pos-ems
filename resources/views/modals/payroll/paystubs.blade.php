@@ -1,5 +1,5 @@
 <!-- Large modal -->
-<div class="modal fade" id="employee-create" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade" id="show-payroll" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,7 +9,7 @@
           </button>
       </div>
       <div class="modal-body">
-            <table class="table table-striped" id="users" style="width:100%; text-align: center;">
+            <table class="table table-striped" id="stubs" style="width:100%; text-align: center;">
               <thead>
                 <tr>
                   <th scope="col">Released</th>
@@ -17,13 +17,13 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($logs as $log) 
-                    <tr>
-                      <td>{{Carbon::parse($log->time_in)->format('F m Y')}}</td>
+                @foreach($stubs as $stub) 
+                    <tr id="{{'paystub_' . $stub->id}}">
+                      <td>{{Carbon::parse($stub->created_at)->format('F m Y')}}</td>
                       <td>
-                          <a href="#" class="btn btn-success">View</a>
+                          <a href="/payroll/stubs/{{$stub->id}}" class="btn btn-success">View</a>
                           @if (Auth::user()->status == 'admin')
-                              <a href="#" class="btn btn-danger">Delete</a>
+                              <a href="#" data-id="{{$stub->id}}" class="delete_payroll btn btn-danger">Delete</a>
                           @endif
                       </td>
                     </tr>

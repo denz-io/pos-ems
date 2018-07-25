@@ -11,7 +11,7 @@
                     <div class="card-header">Options</div>
                     <div class="card-body">
                         <div>
-                            <button type="button" data-toggle="modal" data-target="#employee-create" class="btn-custom btn btn-success">Pay Stubs</button>
+                            <button type="button" data-toggle="modal" data-target="#show-payroll" class="btn-custom btn btn-success">Pay Stubs</button>
                         </div>
                     </div>
                 </div>
@@ -26,14 +26,20 @@
                                 <div class="col-md-1">
                                     <label><b>Name:</b></label>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <input class="custom-input" value="{{ $employee->name }}" type="text" readonly>
                                 </div>
                                 <div class="col-md-1">
                                     <label><b>Status:</b></label>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <input class="custom-input"  value="{{ $employee->status }}" type="text" readonly>
+                                </div>
+                                <div class="col-md-1">
+                                    <label><b>Rate:</b></label>
+                                </div>
+                                <div class="col-md-3">
+                                    <input class="custom-input"  value="{{ $employee->rate }} php/hr" type="text" readonly>
                                 </div>
                             </div>
                             <div class="row">
@@ -48,7 +54,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input class="custom-input" name="total_hrs" type="text" value="{{ sprintf("%d hrs %02d min",   floor($pay_detail[1]/60), $pay_detail[1]%60)}}" readonly>
-                                    <input class="custom-input" name="user_id" type="hidden" value="{{$pay_detail[2]}}" readonly>
+                                    <input class="custom-input"  name="user_id" value="{{ $employee->id }}" type="hidden" readonly>
                                 </div>
                                 <div class="col-md-2">
                                     <button style="float: right;" type="submit" class="btn-custom btn btn-warning">Create Payroll</button>
@@ -63,14 +69,19 @@
 			      <th scope="col">Punch-in</th>
 			      <th scope="col">Punch-out</th>
 			      <th scope="col">Hours Worked</th>
+			      <th scope="col">Options</th>
 			    </tr>
 			  </thead>
 			  <tbody>
                             @foreach($logs as $log) 
-                                <tr>
+                                <tr id="{{'log_'.$log->id}}">
                                   <td>{{Carbon::parse($log->time_in)->format('F j Y, g:i a')}}</td>
                                   <td>{{$log->time_out ? Carbon::parse($log->time_out)->format('F j Y, g:i a'):'' }}</td>
                                   <td>{{Carbon::parse($log->time_out ? Carbon::parse($log->time_out) : Carbon::now())->diff(Carbon::parse($log->time_in))->format('%H hr %I min')}}</td>
+                                  <td>
+                                    <button type="button" data-toggle="modal" data-id="{{$log->id}}" data-time_out="{{$log->time_out ? Carbon::parse($log->time_out)->format('F j Y, g:i a'):'' }}" data-time_in="{{Carbon::parse($log->time_in)->format('F j Y, g:i a')}}" data-target="#update-log" class="btn-custom btn btn-success">Update</button>
+                                    <a class="delete_log btn btn-danger" data-id="{{$log->id}}" href="#">Delete</a>
+                                  </td>
                                 </tr>
                             @endforeach
 			  </tbody>
@@ -80,9 +91,10 @@
             </div>
         </div>
     </div>
-
+    @include('modals.payroll.update')
     @include('modals.payroll.paystubs')
 @endsection
 
 @section('js')
+    <script src="{{ asset('js/payroll.js') }}"></script>
 @endsection

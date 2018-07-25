@@ -40,13 +40,11 @@ $('.add-item-btn').on( 'click',function () {
         //Concatinate array into an array string so that it can be saved into database
         request_items = request_items + ( request_items == '' ? '' : ';') + table_data.toString();  
 
-        console.log(request_items);
-
         $('#item').val( request_items );
 
         //Add data to invoice table if data matches what is needed 
         if (add_table) {
-            $('.tbl-pos tr:last').after('<tr><td>' + table_data[1] + '</td><td>' + table_data[3] + '</td><td>' + table_data[4] + '</td><td>' + table_data[6] + '</td></tr>');
+            $('.tbl-pos tr:last').after('<tr style="cursor:pointer;"><td>' + table_data[1] + '</td><td>' + table_data[3] + '</td><td>' + table_data[4] + '</td><td>' + table_data[6] + '</td></tr>');
         }
         calculateTransactions();
 
@@ -77,7 +75,7 @@ function calculateTransactions() {
     if (purchased) {
         $('#amount_total').val(purchased);
         $('#profit').val(purchased - profit );
-        $('#amount_vat').val(money_multiply(purchased, 0.12) / 1.12);
+        $('#amount_vat').val(Math.round(money_multiply(purchased, 0.12) / 1.12));
         $('#amount_due').val(purchased + money_multiply(purchased, 0.12));
         if($('#given_amount').val() >= purchased && $('#given_amount').val() > 0) {
             $('#change').val((parseInt($('#given_amount').val()) - (purchased + money_multiply(purchased, 0.12))).toFixed(2));
@@ -93,3 +91,18 @@ function money_multiply(a, b) {
         pow_10 = -Math.floor(Math.min(log_10(a), log_10(b))) + 1;
     return ((a * ten_e(pow_10)) * (b * ten_e(pow_10))) / ten_e(pow_10 * 2);
 }
+
+$('.tbl-pos').on('click', 'tr', function () {
+    let items = [];
+    if (confirm('Remove item from cart?')) {
+        $(this.children).each( function (index) {
+            console.log($(this).text());
+        });
+        $('.item td').each(function(index) {
+            console.log($(this).text());
+        });
+    }
+
+});
+
+
