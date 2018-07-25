@@ -59,7 +59,7 @@
                     <div><a onClick="deleteUser()" type="button" href="#" class="btn-custom btn btn-danger">Delete User</a></div>
                 </div>
                 <div class="col-md-4">
-                    <div><a id="logs_user" type="button" href="#" class="btn-custom btn btn-primary">Payroll</a></div>
+                    <div><a id="logs_user" type="button" href="#" class="btn-custom btn btn-primary">Logs</a></div>
                 </div>
             </div>
           </div>

@@ -27,6 +27,10 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/report/delete/{id}','Report@delete');
 
     Route::resource('/payroll','Payroll');
+    Route::post('/payroll/update','Payroll@update');
+    Route::get('/payroll/stubs/{id}','Payroll@showStubs');
+    Route::get('/payroll/delete/log/{id}','Payroll@deleteLog');
+    Route::get('/payroll/delete/{id}','Payroll@deletePayroll');
 });
 
 Route::group(['middleware' => 'employee'], function() {

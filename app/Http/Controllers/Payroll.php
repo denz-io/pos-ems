@@ -11,7 +11,7 @@ class Payroll extends Controller
     public function show($id) 
     {
         $logs = Logs::where('user_id', $id)->where('paystub_id', null)->get();
-        return view('payroll', ['employee' => User::find($id),'logs' => $logs , 'pay_detail' => $this->getCurrentPayout($logs) ]);
+        return view('payroll', ['stubs' => Pay::where('user_id', $id)->get(), 'employee' => User::find($id),'logs' => $logs , 'pay_detail' => $this->getCurrentPayout($logs) ]);
     }
 
     public function store(Request $request) 
@@ -25,6 +25,30 @@ class Payroll extends Controller
             return redirect()->back();
         }
         return redirect()->back()->withErrors(['error' => 'There are no current logs for this account.']);
+    }
+
+    public function showStubs($id) 
+    {
+        $user_id  = Pay::find($id)->first()->user_id;
+        return view('payroll_stub', ['employee' => User::find($user_id),'pay_detail' => Pay::find($id), 'logs' => Logs::where('paystub_id', $id)->get()]);
+    }
+
+    public function update(Request $request) 
+    {
+        Logs::find($request->id)->update(['time_in' => Carbon::parse($request->time_in), 'time_out' => Carbon::parse($request->time_out)]);
+        return redirect()->back();
+    }
+
+    public function deleteLog($id) 
+    {
+        Logs::find($id)->delete();
+        return $id;
+    }
+
+    public function deletePayroll($id) 
+    {
+        Pay::find($id)->delete();
+        return $id;
     }
 
     private function updateLogs($logs, $pay_id) 

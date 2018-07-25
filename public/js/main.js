@@ -1,6 +1,8 @@
 $(document).ready(function() {
     $('#items').DataTable();
     $('#users').DataTable();
+    $('#users').DataTable();
+    $('#stubs').DataTable();
 });
 
 $('.error-message').delay(4000).fadeOut(400);

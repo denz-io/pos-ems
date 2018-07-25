@@ -25,6 +25,7 @@ class Home extends Controller
        $this->ValidateUser($request);
        if (!User::where('username', $request->username)->first()) {
            $this->isUsernameSet($request);
+           return redirect('/home');
        }
        return redirect('/home')->withErrors(['createError' => 'Employee was not created! Username already exist!']);
     }
@@ -88,7 +89,7 @@ class Home extends Controller
         $user = User::find($id);
         $this->logStatus($user);
         $user->update([ 'is_loggedin' => $user->is_loggedin ? 0 : 1 ]);
-        return redirect('/home-employee');
+        return redirect('/home');
     }
 
     private function logStatus($user)
