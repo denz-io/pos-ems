@@ -15,6 +15,7 @@
     <link href="{{ asset('css/tables.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     @yield('css') 
 </head>
 <body>
@@ -28,67 +29,59 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @if (Auth::user())
-                            @if (Auth::user()->position != 'admin')
-                                <li class="nav-item">
-                                     <a class="nav-link" href="/">
-                                        <img class="profileimage_nav" src="{{'images/profile_pics/' . Auth::user()->profile}}" alt="{{ Auth::user()->name }}"></img>
-                                    </a>
-                                </li>
-                            @else
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/">EDV</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">EDV</a>
-                            </li>
-                        @endif
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">EDV</a>
+                        </li>
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            @if(\Request::route()->getName() == 'index') 
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/employee_logging" data-toggle="modal" data-target="#employee-login"><i class="fa fa-lg fa-unlock-alt"></i> Employee Login</a>
+                                </li>
+                            @endif
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Admin Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-lg fa-unlock-alt"></i> Admin Login</a>
                             </li>
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pos"><i class="fa fa-lg fa-cart-plus"></i> Point of Sales</a>
+                            </li>
                             @if(Auth::user()->status == 'admin')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/home">Employees</a>
+                                    <a class="nav-link" href="/home"><i class="fa fa-lg fa-users"></i> Employees</a>
                                 </li>
                             @endif
-                            @if(Auth::user())
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/inventory">Inventory</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/invoices">Invoices</a>
-                                </li>
-                            @endif
+                            <li class="nav-item">
+                                <a class="nav-link" href="/inventory"><i class="fa fa-lg fa-cubes"></i> Inventory</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/invoices"><i class="fa fa-lg fa-book"></i> Invoices</a>
+                            </li>
                             @if(Auth::user()->status != 'admin')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/home-employee">My Account</a>
+                                    <a class="nav-link" href="/home-employee"><i class="fa fa-lg fa-user"></i> My Logs</a>
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/report">Report</a>
+                                    <a class="nav-link" href="/report"><i class="fa fa-lg fa-bookmark"></i> Report</a>
                                 </li>
                             @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} 
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/settings">
-                                        Settings
+                                        <i class="fa fa-lg fa-cogs"></i> Settings
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-lg fa-sign-out"></i>
                                         {{ __('Logout') }}
                                     </a>
 

@@ -1,6 +1,11 @@
 $('#update-log').on('show.bs.modal', function (event) {
     $(this).find('#time_in').val($(event.relatedTarget).data('time_in'))
-    $(this).find('#time_out').val($(event.relatedTarget).data('time_out'))
+    if ($(event.relatedTarget).data('time_out')) {
+        $(this).find('#time_out').val($(event.relatedTarget).data('time_out'))
+        $(this).find('#time_out').prop('disabled', false);
+    } else {
+        $(this).find('#time_out').prop('disabled', true);
+    }
     $(this).find('#id').val($(event.relatedTarget).data('id'))
 });
 

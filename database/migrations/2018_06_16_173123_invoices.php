@@ -27,6 +27,7 @@ class Invoices extends Migration
             $table->string('total_sales_vat');
             $table->string('amount_due');
             $table->string('profit');
+            $table->string('date');
             $table->timestamps();
         });
     }

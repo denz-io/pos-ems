@@ -11,8 +11,8 @@
                 <div class="card">
                     <div class="card-header">Inventory</div>
                     <div class="card-body">
-			    @if(Auth::user())
-				<div style="padding-bottom: 10px; color: #fff !important;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Add Items</button></div>
+			    @if(Auth::user()->status == 'admin')
+				<div style="padding-bottom: 10px; color: #fff !important;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-lg fa-plus"></i> Add Items</button></div>
 			    @endif
 			    <table id="items" class="table table-striped">
 				<thead>
@@ -37,10 +37,10 @@
 					    <td>{{ $item->retail_price }} php</td>
 					    <td>
 						<div style="color: #fff !important">
-						    <a href="#"  data-sold="{{ $item->sold }}" data-desc="{{ $item->description }}"data-sold="{{$item->sold}}" data-id="{{$item->id}}" data-original_price="{{$item->original_price}}" data-retail_price="{{$item->retail_price}}" data-stock="{{$item->stock}}" data-name="{{$item->name}}" data-toggle="modal" data-target="#showmoreinventory" class="btn btn-success">More</a>
-						    @if(Auth::user())
-							<a href="#" data-desc="{{ $item->description }}"data-sold="{{$item->sold}}" data-id="{{$item->id}}" data-original_price="{{$item->original_price}}" data-retail_price="{{$item->retail_price}}" data-stock="{{$item->stock}}" data-name="{{$item->name}}" data-toggle="modal" data-target="#update-item" class="btn btn-primary">Update</a>
-							<a type="button" href="#" data-id="{{$item->id}}" class="btn btn-danger delete">Delete</a>
+						    <a href="#"  data-sold="{{ $item->sold }}" data-desc="{{ $item->description }}"data-sold="{{$item->sold}}" data-id="{{$item->id}}" data-original_price="{{$item->original_price}}" data-retail_price="{{$item->retail_price}}" data-stock="{{$item->stock}}" data-name="{{$item->name}}" data-toggle="modal" data-target="#showmoreinventory" class="btn btn-success"><i class="fa fa-lg fa-info-circle"></i> More</a>
+						    @if(Auth::user()->status == 'admin')
+							<a href="#" data-desc="{{ $item->description }}"data-sold="{{$item->sold}}" data-id="{{$item->id}}" data-original_price="{{$item->original_price}}" data-retail_price="{{$item->retail_price}}" data-stock="{{$item->stock}}" data-name="{{$item->name}}" data-toggle="modal" data-target="#update-item" class="btn btn-primary"><i class="fa fa-lg fa-pencil-square-o"></i> Update</a>
+							<a type="button" href="#" data-id="{{$item->id}}" class="btn btn-danger delete"><i class="fa fa-lg fa-trash-o"></i> Delete</a>
 						    @endif
 						</div>
 					    </td>

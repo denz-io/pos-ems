@@ -14,6 +14,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Sold to</th>
                                     <th>Created at</th>
                                     <th>Sales</th>
                                     <th>Profit</th>
@@ -25,6 +26,7 @@
                                 @foreach($invoices as $invoice)
                                     <tr>
                                         <td>{{ $invoice->invoice_number }}</td>
+                                        <td>{{ $invoice->customer }}</td>
                                         <td>{{ Carbon::parse($invoice->created_at)->format('F j Y, g:i a') }}</td>
                                         <td>{{ $invoice->total_sales}}</td>
                                         <td>{{ $invoice->profit}}</td>

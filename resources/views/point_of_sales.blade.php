@@ -59,7 +59,7 @@
                             </tr>
                             <tr>
                               <th>Date:</th>
-                              <td><input type="text" class="custom-input2" name="date" value="{{Carbon\Carbon::now()}}" readonly></input></td>
+                              <td><input type="text" class="custom-input2" name="date" value="{{Carbon\Carbon::now('Asia/Manila')->format('F j Y, g:i a')}}" readonly></input></td>
                             </tr>
                             <tr>
                               <th>Terms:</th>
@@ -92,7 +92,7 @@
                 <div class="row custom-row">
                     <div class="col-md-6"> 
                         <div style="padding-left: 40px;">
-                            <button type="button"  data-toggle="modal" data-target="#pos-add-item" class="btn-custom btn btn-success">Add Item</button>
+                            <button type="button"  data-toggle="modal" data-target="#pos-add-item" class="btn-custom btn btn-success"><i class="fa fa-lg fa-plus"></i> Add Item</button>
                         </div>
                     </div>     
                     <div class="col-md-6" > 

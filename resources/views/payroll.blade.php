@@ -77,7 +77,7 @@
                                 <tr id="{{'log_'.$log->id}}">
                                   <td>{{Carbon::parse($log->time_in)->format('F j Y, g:i a')}}</td>
                                   <td>{{$log->time_out ? Carbon::parse($log->time_out)->format('F j Y, g:i a'):'' }}</td>
-                                  <td>{{Carbon::parse($log->time_out ? Carbon::parse($log->time_out) : Carbon::now())->diff(Carbon::parse($log->time_in))->format('%H hr %I min')}}</td>
+                                  <td>{{Carbon::parse($log->time_out ? Carbon::parse($log->time_out) : Carbon::now('Asia/Manila'))->diff(Carbon::parse($log->time_in))->format('%H hr %I min')}}</td>
                                   <td>
                                     <button type="button" data-toggle="modal" data-id="{{$log->id}}" data-time_out="{{$log->time_out ? Carbon::parse($log->time_out)->format('F j Y, g:i a'):'' }}" data-time_in="{{Carbon::parse($log->time_in)->format('F j Y, g:i a')}}" data-target="#update-log" class="btn-custom btn btn-success">Update</button>
                                     <a class="delete_log btn btn-danger" data-id="{{$log->id}}" href="#">Delete</a>

@@ -12,15 +12,15 @@
                     <div class="card-body">
                         <div>
                             @if (Auth::user()->is_loggedin)
-                                <a href="/attendance" class="btn-custom btn btn-warning">Punch Out</a>
+                                <a href="/attendance" class="btn-custom btn btn-warning"><i class="fa fa-lg fa-money"></i> Punch Out</a>
                             @else
-                                <a href="/attendance" class="btn-custom btn btn-primary">Punch In</a>
+                                <a href="/attendance" class="btn-custom btn btn-primary"><i class="fa fa-lg fa-money"></i> Punch In</a>
                             @endif
                         </div>
                         <br>
                         
                         <div>
-                            <button type="button" data-toggle="modal" data-target="#employee-create" class="btn-custom btn btn-success">Pay Stubs</button>
+                            <button type="button" data-toggle="modal" data-target="#employee-create" class="btn-custom btn btn-success"><i class="fa fa-lg fa-usd"></i> Pay Stubs</button>
                         </div>
                     </div>
                 </div>
