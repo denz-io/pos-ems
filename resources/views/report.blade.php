@@ -12,17 +12,17 @@
                     <div class="card-body">
 			<form action="/report" method="POST">
 			    {{ csrf_field() }}
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="text" name="report_start" id="datepicker" class="input-field" placeholder="Start Date" required />
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                    <i class="fa fa-lg fa-calendar"></i>
+                                    <input style="width:89%" type="text" name="report_start" id="datepicker" class="input-field" placeholder="Start Date" required />
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="text" name="report_end" id="expirydate" class="input-field" placeholder="End Date" required />
+                                <div class="col-md-4">
+                                    <i class="fa fa-lg fa-calendar"></i>
+                                    <input style="width:89%" type="text" name="report_end" id="expirydate" class="input-field" placeholder="End Date" required />
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4" style="padding-top: 10px;">
-                                    <button type="Submit" class="btn-custom btn btn-primary">Create Report</button>
+                                <div class="col-md-4">
+                                    <button type="Submit" class="btn-custom btn btn-primary"><i class="fa fa-lg fa-plus"></i> Create Report</button>
                                 </div>
                             </div>
                         </form>
@@ -53,8 +53,8 @@
                                         <td>{{ $report->total_amount }} php</td>
                                         <td>{{ $report->total_earned }} php</td>
                                         <td>
-                                            <a type="button" href="report/{{$report->id}}" class="btn btn-primary">More</a>
-                                            <a type="button" data-id="{{$report->id}}" href="#" class="delete_report btn btn-danger">Delete</a>
+                                            <a type="button" href="report/{{$report->id}}" class="btn btn-primary"><i class="fa fa-lg fa-info-circle"></i> More</a>
+                                            <a type="button" data-id="{{$report->id}}" href="#" class="delete_report btn btn-danger"><i class="fa fa-lg fa-trash-o"></i> Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

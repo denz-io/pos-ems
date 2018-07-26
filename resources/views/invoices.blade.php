@@ -27,13 +27,13 @@
                                     <tr>
                                         <td>{{ $invoice->invoice_number }}</td>
                                         <td>{{ $invoice->customer }}</td>
-                                        <td>{{ Carbon::parse($invoice->created_at)->format('F j Y, g:i a') }}</td>
+                                        <td>{{ Carbon::parse($invoice->date)->format('F j Y, g:i a') }}</td>
                                         <td>{{ $invoice->total_sales}}</td>
                                         <td>{{ $invoice->profit}}</td>
                                         <td>{{ $invoice->amount_given}}</td>
                                         <td>
-                                            <a type="button" href="{{ '/invoices/' . $invoice->id }}" class="btn btn-primary">More</a>
-                                            <a type="button" data-id="{{$invoice->id}}" href="#" class="delete_invoice btn btn-danger">Delete</a>
+                                            <a type="button" href="{{ '/invoices/' . $invoice->id }}" class="btn btn-primary"><i class="fa fa-lg fa-info-circle"></i> More</a>
+                                            <a type="button" data-id="{{$invoice->id}}" href="#" class="delete_invoice btn btn-danger"><i class="fa fa-lg fa-trash-o"></i> Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

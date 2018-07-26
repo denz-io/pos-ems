@@ -35,7 +35,7 @@
                                 <label><b>Current Pay:</b></label>
                             </div>
                             <div class="col-md-3">
-                                <input class="custom-input" name="payout" type="text" value="{{$pay_detail->payout}} php" readonly>
+                                <input class="custom-input" name="payout" type="text" value="{{$pay_detail->payout}}" readonly>
                             </div>
                             <div class="col-md-2">
                                 <label><b>Total Hrs Worked:</b></label>

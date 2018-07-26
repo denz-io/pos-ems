@@ -57,9 +57,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/inventory"><i class="fa fa-lg fa-cubes"></i> Inventory</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/invoices"><i class="fa fa-lg fa-book"></i> Invoices</a>
-                            </li>
+                            @if(Auth::user()->status == 'admin')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/invoices"><i class="fa fa-lg fa-book"></i> Invoices</a>
+                                </li>
+                            @endif
                             @if(Auth::user()->status != 'admin')
                                 <li class="nav-item">
                                     <a class="nav-link" href="/home-employee"><i class="fa fa-lg fa-user"></i> My Logs</a>

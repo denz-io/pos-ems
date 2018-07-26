@@ -59,8 +59,8 @@
                 </div>
             </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-lg fa-times"></i> Close</button>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-lg fa-floppy-o"></i> Save</button>
           </div>
         </form>
     </div>

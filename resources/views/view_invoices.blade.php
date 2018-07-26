@@ -57,7 +57,7 @@
                         </tr>
                         <tr>
                           <th>Date:</th>
-                          <td><input type="text" class="custom-input2" name="date" value="{{$invoice->created_at}}" disabled></input></td>
+                          <td><input type="text" class="custom-input2" name="date" value="{{$invoice->date}}" disabled></input></td>
                         </tr>
                         <tr>
                           <th>Terms:</th>
@@ -99,7 +99,7 @@
             <div class="row custom-row">
                 <div class="col-md-6"> 
                     <div style="padding-left: 40px;">
-                        <button type="button"  data-toggle="modal" data-target="#pos-add-item" class="btn-custom btn btn-success">Print</button>
+                        <button type="button"  data-toggle="modal" data-target="#pos-add-item" class="btn-custom btn btn-success"><i class="fa fa-lg fa-print"></i> Print</button>
                     </div>
                 </div>     
                 <div class="col-md-6" > 
