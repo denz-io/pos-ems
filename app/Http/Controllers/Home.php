@@ -100,7 +100,7 @@ class Home extends Controller
     private function punchout($id)
     {
         foreach(Logs::where(['user_id' => $id,'time_out' => null])->get() as $log) {
-            $log->time_out = Carbon::now();
+            $log->time_out = Carbon::now('Asia/Manila');
             $log->save();
         }
     }
@@ -109,7 +109,7 @@ class Home extends Controller
     {
         Logs::create([
             'user_id' => $id, 
-            'time_in' => Carbon::now(), 
+            'time_in' => Carbon::now('Asia/Manila'), 
         ]);
     }
 }
