@@ -84,7 +84,7 @@
                                     <tr>
                                         <td>{{ $invoice->invoice_number }}</td>
                                         <td>{{ Carbon::parse($invoice->created_at)->format('F j Y, g:i a') }}</td>
-                                        <td>{{ $invoice->total_sales}}</td>
+                                        <td>{{ $invoice->amount_due}}</td>
                                         <td>{{ $invoice->profit}}</td>
                                         <td>{{ $invoice->amount_given}}</td>
                                         <td>

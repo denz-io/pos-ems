@@ -35,9 +35,12 @@ class Payroll extends Controller
 
     public function update(Request $request) 
     {
-        $this->validateDateFormat($request);
-        Logs::find($request->id)->update(['time_in' => Carbon::parse($request->time_in), 'time_out' => Carbon::parse($request->time_out)]);
-        return redirect()->back();
+        if ( Carbon::parse($request->time_in) <= Carbon::parse($request->time_out)) {
+            $this->validateDateFormat($request);
+            Logs::find($request->id)->update(['time_in' => Carbon::parse($request->time_in), 'time_out' => Carbon::parse($request->time_out)]);
+            return redirect()->back();
+        }
+        return redirect()->back()->withErrors(['error' => 'Invalid log update.']);
     }
 
     public function validateDateFormat($request) {

@@ -17,11 +17,14 @@ class Report extends Controller
 
     public function store(Request $request) 
     {
-        if ($new_report = $this->setReportData($this->getFilteredInvoices($request), $request)) {
-            Reports::create($new_report);
-            return redirect('/report');
+        if (Carbon::parse($request->report_start) <= Carbon::parse($request->report_end)) {
+            if ($new_report = $this->setReportData($this->getFilteredInvoices($request), $request)) {
+                Reports::create($new_report);
+                return redirect('/report');
+            }
+            return redirect()->back()->withErrors([ 'error' => 'There are no invoices recorded between these dates.']);;
         }
-        return redirect()->back()->withErrors([ 'error' => 'There are no invoices recorded between these dates.']);;
+        return redirect()->back()->withErrors([ 'error' => 'Invalid Report dates.']);;
     }
 
     public function show($id)
@@ -66,22 +69,18 @@ class Report extends Controller
     {
         $sales = 0;
         $profit = 0;
-
-        if (!count($data)) {
-            return;
+        if (count($data)) {
+            foreach ($data as $invoice) {
+                $sales = $sales + $invoice->amount_due;
+                $profit = $profit + $invoice->profit;
+            }
+            return [
+                'report_start' => $request->report_start,
+                'report_end'   => $request->report_end,
+                'user_id'      => Auth::user()->id,
+                'total_amount' => round($sales, 2),
+                'total_earned' => round($profit,2)
+            ];
         }
-
-        foreach ($data as $invoice) {
-            $sales = $sales + $invoice->amount_due;
-            $profit = $profit + $invoice->profit;
-        }
-
-        return [
-            'report_start' => $request->report_start,
-            'report_end'   => $request->report_end,
-            'user_id'      => Auth::user()->id,
-            'total_amount' => round($sales, 2),
-            'total_earned' => round($profit,2)
-        ];
     }
 }

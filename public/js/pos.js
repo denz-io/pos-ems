@@ -39,7 +39,7 @@ $('.add-item-btn').on( 'click',function () {
 
         //Concatinate array into an array string so that it can be saved into database
         request_items = request_items + ( request_items == '' ? '' : ';') + table_data.toString();  
-
+        console.log(request_items);
         $('#item').val( request_items );
 
         //Add data to invoice table if data matches what is needed 

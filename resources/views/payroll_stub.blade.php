@@ -32,7 +32,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-2">
-                                <label><b>Current Pay:</b></label>
+                                <label><b>Total Payout:</b></label>
                             </div>
                             <div class="col-md-3">
                                 <input class="custom-input" name="payout" type="text" value="{{$pay_detail->payout}}" readonly>

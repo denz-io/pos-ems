@@ -15,11 +15,11 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-4">
                                     <i class="fa fa-lg fa-calendar"></i>
-                                    <input style="width:89%" type="text" name="report_start" id="datepicker" class="input-field" placeholder="Start Date" required />
+                                    <input style="width:89%" type="text" name="report_start" id="datepicker" class="input-field" placeholder="Start" required />
                                 </div>
                                 <div class="col-md-4">
                                     <i class="fa fa-lg fa-calendar"></i>
-                                    <input style="width:89%" type="text" name="report_end" id="expirydate" class="input-field" placeholder="End Date" required />
+                                    <input style="width:89%" type="text" name="report_end" id="expirydate" class="input-field" placeholder="End" required />
                                 </div>
                                 <div class="col-md-4">
                                     <button type="Submit" class="btn-custom btn btn-primary"><i class="fa fa-lg fa-plus"></i> Create Report</button>
