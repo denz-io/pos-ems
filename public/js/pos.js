@@ -56,15 +56,22 @@ $('.add-item-btn').on( 'click',function () {
 $('#given_amount').keypress(function (e) {
     if (e.which == 13) {
         if($(this).val() >= $(amount_due).val() && $(this).val() > 0) {
-            calculateTransactions();
+            calculateChange();
             if(confirm('Customers Change is: ' + $('#change').val())) {
                 saveTransaction();
+            } else {
+                $(this).val(0)
             }
         } else {
             alert('Please enter a valid amount.');
         }
     }
 });
+
+function calculateChange() {
+    let change = (parseInt($('#given_amount').val()) - (purchased + money_multiply(purchased, 0.12))).toFixed(2);
+    $('#change').val(change > 0 ? change : Math.abs(change));
+}
 
 function saveTransaction() {
      $( "#pos_form" ).submit();
@@ -74,13 +81,9 @@ function calculateTransactions() {
     if (purchased) {
         $('#amount_total').val(purchased);
         $('#profit').val(purchased - profit );
-        $('#amount_vat').val(Math.round(money_multiply(purchased, 0.12) / 1.12));
-        $('#amount_due').val(purchased + money_multiply(purchased, 0.12));
-        if($('#given_amount').val() >= purchased && $('#given_amount').val() > 0) {
-            $('#change').val((parseInt($('#given_amount').val()) - (purchased + money_multiply(purchased, 0.12))).toFixed(2));
-        }
+        $('#amount_vat').val(parseFloat(money_multiply(purchased, 0.12) / 1.12).toFixed(2));
+        $('#amount_due').val(parseFloat(purchased + (money_multiply(purchased, 0.12) / 1.12)).toFixed(2));
     }
-
 }
 
 //round decimal suited for currency

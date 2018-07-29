@@ -91,7 +91,7 @@
             </div>
         </div>
     </div>
-    @include('modals.payroll.paystubs');
+    @include('modals.payroll.paystubs')
 @endsection
 
 @section('js')

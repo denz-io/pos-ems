@@ -7,6 +7,8 @@ $(document).ready(function() {
 
 $('.error-message').delay(4000).fadeOut(400);
 
+$('.success-message').delay(4000).fadeOut(400);
+
 if($('#datepicker').length > 0){
     $('#datepicker').datepicker({
 	uiLibrary: 'bootstrap4'

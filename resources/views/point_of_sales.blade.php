@@ -115,7 +115,7 @@
                             </tr>
                             <tr>
                               <th>CHANGE:</th>
-                              <td><input type="text" class="custom-input2" value="0" id="change" readonly></td>
+                              <td><input name="change" type="text" class="custom-input2" value="0" id="change" readonly></td>
                               <input type="hidden" id="item" name="items" >
                               <input type="hidden" id="profit" name="profit" >
                             </tr>

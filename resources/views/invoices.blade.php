@@ -17,6 +17,7 @@
                                     <th>Sold to</th>
                                     <th>Created at</th>
                                     <th>Sales</th>
+                                    <th>12% Vat</th>
                                     <th>Profit</th>
                                     <th>Amount Given</th>
                                     <th>Options</th>
@@ -29,6 +30,7 @@
                                         <td>{{ $invoice->customer }}</td>
                                         <td>{{ Carbon::parse($invoice->date)->format('F j Y, g:i a') }}</td>
                                         <td>{{ $invoice->total_sales}}</td>
+                                        <td>{{ $invoice->total_sales_vat}}</td>
                                         <td>{{ $invoice->profit}}</td>
                                         <td>{{ $invoice->amount_given}}</td>
                                         <td>

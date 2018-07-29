@@ -16,9 +16,7 @@ class Inventory extends Controller
     {
         $this->ValidateItems($request);
         $id = Item::create($request->all())->toArray()['id'];
-        if (isset($request->image)) {
-            $this->uploadProfilePic($request, $id);
-        }
+        isset($request->image) ? $this->uploadProfilePic($request, $id) : null;
         return redirect('/inventory');
     }
 
@@ -26,9 +24,7 @@ class Inventory extends Controller
     {
         $this->ValidateItems($request);
         Item::find($request->id)->update($request->all());
-        if (isset($request->image)) {
-            $this->uploadProfilePic($request, $request->id);
-        }
+        isset($request->image) ? $this->uploadProfilePic($request, $request->id) : null;
         return redirect('/inventory');
     }
 

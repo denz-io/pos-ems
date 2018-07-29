@@ -8,6 +8,8 @@
 
 .error-message { color: white; font-weight: bold; padding: 5px; margin-bottom: 5px; background-color: #D10017; width: 100%; text-align: center; }
 
+.success-message { color: white; font-weight: bold; padding: 5px; margin-bottom: 5px; background-color: #0A8A57; width: 100%; text-align: center; }
+
 .input-file { width: 50% }
 
 .custom-input {  border: 0; outline: 0; background: transparent; border-bottom: 1px solid black; font-size: 20px; width: 100%; margin-bottom: 20px; }

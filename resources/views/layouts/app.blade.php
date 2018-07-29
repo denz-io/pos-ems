@@ -97,11 +97,17 @@
         </nav>
 
         <main class="py-4">
-            @foreach($errors->all() as $error) 
-                <div class="error-message">
-                    {{ $error }}
+            @if($errors->first('success'))
+                <div class="success-message">
+                    {{$errors->first('success')}}
                 </div>
-            @endforeach
+            @else
+                @foreach($errors->all() as $error) 
+                    <div class="error-message">
+                        {{ $error }}
+                    </div>
+                @endforeach
+            @endif
             @yield('content')
         </main>
     </div>

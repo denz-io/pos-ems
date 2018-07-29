@@ -22,7 +22,7 @@ class Home extends Controller
 
     public function createUser(Request $request) 
     {
-       $this->ValidateUser($request);
+       $this->validateForm($request);
        if (!User::where('username', $request->username)->first()) {
            $this->isUsernameSet($request);
            return redirect('/home');
@@ -32,9 +32,9 @@ class Home extends Controller
 
     private function isUsernameSet($request)
     {
-       $id = User::create($request->all())->toArray()['id']; 
-       $this->isProfilePicSet($request, $id);
-       return redirect('/home');
+        $id = User::create($request->all())->toArray()['id']; 
+        $this->isProfilePicSet($request, $id);
+        return redirect('/home');
     }
 
     public function deleteUser($id) {
@@ -74,7 +74,7 @@ class Home extends Controller
         User::find($id)->update(['profile' => $image_name]);
     }
 
-    private function ValidateUser($request) {
+    private function validateForm($request) {
         $this->validate($request, [
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'rate' => 'required|integer',
@@ -99,7 +99,7 @@ class Home extends Controller
 
     private function punchout($id)
     {
-        foreach(Logs::where(['user_id' => $id,'time_out' => null])->get() as $log) {
+        foreach(Logs::where(['user_id' => $id,'time_out' => null])->get() as $log){
             $log->time_out = Carbon::now('Asia/Manila');
             $log->save();
         }

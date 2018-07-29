@@ -46,6 +46,8 @@ Route::group(['middleware' => 'employee'], function() {
     Route::get('/invoices/delete/{id}','Invoice@delete');
 
     Route::get('/payroll/stubs/{id}','Payroll@showStubs');
+
+    Route::resource('/settings','Settings');
 });
 
 

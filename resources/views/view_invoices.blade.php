@@ -119,7 +119,7 @@
                         </tr>
                         <tr>
                           <th>CHANGE:</th>
-                          <td><input type="text" class="custom-input2" value="{{$invoice->amount_given - $invoice->amount_due}}" id="change" disabled></td>
+                          <td><input type="text" class="custom-input2" value="{{$invoice->change}}" id="change" disabled></td>
                         </tr>
                       </tbody>
                     </table>
