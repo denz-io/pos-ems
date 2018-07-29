@@ -75,7 +75,7 @@
                 </div>
                 <div class="row custom-row">
                     <div class="table-container">
-                        <table class="table table-striped tbl-pos">
+                        <table class="table table-striped">
                           <thead>
                               <tr>
                                   <th scope="col">UNIT</th>
@@ -84,6 +84,8 @@
                                   <th scope="col">AMOUNT</th> 
                               </tr>
                           </thead>
+                          <tbody class="tbl-pos">
+                          <tbody>
                         </table>
                     </div>
                 </div>
@@ -93,6 +95,7 @@
                     <div class="col-md-6"> 
                         <div style="padding-left: 40px;">
                             <button type="button"  data-toggle="modal" data-target="#pos-add-item" class="btn-custom btn btn-success"><i class="fa fa-lg fa-plus"></i> Add Item</button>
+                            <button type="button"  id="clear-btn" class="btn-custom btn btn-success"><i class="fa fa-lg fa-eraser"></i> Clear</button>
                         </div>
                     </div>     
                     <div class="col-md-6" > 

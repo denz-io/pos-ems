@@ -1,6 +1,6 @@
 var add_table = false;
 var request_items = '';
-var stock;
+var stock = 0;
 var purchased = 0;
 var profit = 0;
 
@@ -39,12 +39,11 @@ $('.add-item-btn').on( 'click',function () {
 
         //Concatinate array into an array string so that it can be saved into database
         request_items = request_items + ( request_items == '' ? '' : ';') + table_data.toString();  
-        console.log(request_items);
         $('#item').val( request_items );
 
         //Add data to invoice table if data matches what is needed 
         if (add_table) {
-            $('.tbl-pos tr:last').after('<tr style="cursor:pointer;"><td>' + table_data[1] + '</td><td>' + table_data[3] + '</td><td>' + table_data[4] + '</td><td>' + table_data[6] + '</td></tr>');
+            $('.tbl-pos').append('<tr style="cursor:pointer;"><td>' + table_data[1] + '</td><td>' + table_data[3] + '</td><td>' + table_data[4] + '</td><td>' + table_data[6] + '</td></tr>');
         }
         calculateTransactions();
 
@@ -92,17 +91,6 @@ function money_multiply(a, b) {
     return ((a * ten_e(pow_10)) * (b * ten_e(pow_10))) / ten_e(pow_10 * 2);
 }
 
-$('.tbl-pos').on('click', 'tr', function () {
-    let items = [];
-    if (confirm('Remove item from cart?')) {
-        $(this.children).each( function (index) {
-            console.log($(this).text());
-        });
-        $('.item td').each(function(index) {
-            console.log($(this).text());
-        });
-    }
-
-});
-
-
+$('#clear-btn').click( function() {
+    location.reload(); 
+})
