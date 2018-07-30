@@ -55,13 +55,8 @@ $('.add-item-btn').on( 'click',function () {
 
 $('#given_amount').keypress(function (e) {
     if (e.which == 13) {
-        if($(this).val() >= $(amount_due).val() && $(this).val() > 0) {
+        if(parseInt($(this).val()) >= parseInt($(amount_due).val())) {
             calculateChange();
-            if(confirm('Customers Change is: ' + $('#change').val())) {
-                saveTransaction();
-            } else {
-                $(this).val(0)
-            }
         } else {
             alert('Please enter a valid amount.');
         }
@@ -74,7 +69,13 @@ function calculateChange() {
 }
 
 function saveTransaction() {
-     $( "#pos_form" ).submit();
+    if($('#given_amount').val() > 0 && $('#change').val() > 0) {
+        if (confirm('Customers Change is: ' + $('#change').val() + '. Finish Transation?'))  {
+            $( "#pos_form" ).submit();
+        }
+    } else {
+       alert('Please enter amount given by customer.'); 
+    }
 }
 
 function calculateTransactions() {
@@ -93,7 +94,3 @@ function money_multiply(a, b) {
         pow_10 = -Math.floor(Math.min(log_10(a), log_10(b))) + 1;
     return ((a * ten_e(pow_10)) * (b * ten_e(pow_10))) / ten_e(pow_10 * 2);
 }
-
-$('#clear-btn').click( function() {
-    location.reload(); 
-})

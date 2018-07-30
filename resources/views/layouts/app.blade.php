@@ -30,7 +30,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/"><i class="fa fa-lg fa-home"></i> EDV</a>
+                            <a class="nav-link" href="/"><i class="fa fa-lg fa-home"> EDV</i></a>
                         </li>
                     </ul>
                     <!-- Right Side Of Navbar -->
@@ -39,50 +39,49 @@
                         @guest
                             @if(\Request::route()->getName() == 'index') 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/employee_logging" data-toggle="modal" data-target="#employee-login"><i class="fa fa-lg fa-unlock-alt"></i> Employee Login</a>
+                                    <a class="nav-link" href="/employee_logging" data-toggle="modal" data-target="#employee-login"><i class="fa fa-lg fa-unlock-alt"> Employee Login</i></a>
                                 </li>
                             @endif
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-lg fa-unlock-alt"></i> Admin Login</a>
+                                <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-lg fa-unlock-alt"> Admin Login</i></a>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="/pos"><i class="fa fa-lg fa-cart-plus"></i> Point of Sales</a>
+                                <a class="nav-link" href="/pos"><i class="fa fa-lg fa-cart-plus"> Point of Sales</i></a>
                             </li>
                             @if(Auth::user()->status == 'admin')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/home"><i class="fa fa-lg fa-users"></i> Employees</a>
+                                    <a class="nav-link" href="/home"><i class="fa fa-lg fa-users"> Employees</i></a>
                                 </li>
                             @endif
                             <li class="nav-item">
-                                <a class="nav-link" href="/inventory"><i class="fa fa-lg fa-cubes"></i> Inventory</a>
+                                <a class="nav-link" href="/inventory"><i class="fa fa-lg fa-cubes"> Inventory</i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/invoices"><i class="fa fa-lg fa-book"></i> Invoices</a>
+                                <a class="nav-link" href="/invoices"><i class="fa fa-lg fa-book"> Invoices</i></a>
                             </li>
                             @if(Auth::user()->status != 'admin')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/home-employee"><i class="fa fa-lg fa-user"></i> My Logs</a>
+                                    <a class="nav-link" href="/home-employee"><i class="fa fa-lg fa-user"> My Logs</i></a>
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/report"><i class="fa fa-lg fa-bookmark"></i> Report</a>
+                                    <a class="nav-link" href="/report"><i class="fa fa-lg fa-bookmark"> Report</i></a>
                                 </li>
                             @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} 
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/settings">
-                                        <i class="fa fa-lg fa-cogs"></i> Settings
+                                        <i class="fa fa-lg fa-cogs"> Settings</i>
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <i class="fa fa-lg fa-sign-out"></i>
-                                        {{ __('Logout') }}
+                                        <i class="fa fa-lg fa-sign-out">{{_('Logout') }}</i>
+                                        
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

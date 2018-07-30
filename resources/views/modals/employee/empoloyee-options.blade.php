@@ -53,13 +53,13 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <div><a onClick="updateUser()" type="button" href="#" class="btn-custom btn btn-warning"><i class="fa fa-lg fa-pencil-square-o"></i> Update User</a></div>
+                    <div><a onClick="updateUser()" type="button" href="#" class="btn-custom btn btn-warning"><i class="fa fa-lg fa-pencil-square-o"> Update User</i></a></div>
                 </div>
                 <div class="col-md-4">
-                    <div><a id="logs_user" type="button" href="#" class="btn-custom btn btn-primary"><i class="fa fa-lg fa-list-ol"></i> Logs</a></div>
+                    <div><a id="logs_user" type="button" href="#" class="btn-custom btn btn-primary"><i class="fa fa-lg fa-list-ol"> Logs</i></a></div>
                 </div>
                 <div class="col-md-4">
-                    <div><a onClick="deleteUser()" type="button" href="#" class="btn-custom btn btn-danger"><i class="fa fa-lg fa-trash-o"></i> Delete User</a></div>
+                    <div><a onClick="deleteUser()" type="button" href="#" class="btn-custom btn btn-danger"><i class="fa fa-lg fa-trash-o"> Delete User</i></a></div>
                 </div>
             </div>
           </div>

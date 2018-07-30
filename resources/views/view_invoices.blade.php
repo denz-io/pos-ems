@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container" id="invoice_rec">
         <div class="card">
             <div class="custom-row-header">
                 <div>
@@ -99,7 +99,7 @@
             <div class="row custom-row">
                 <div class="col-md-6"> 
                     <div style="padding-left: 40px;">
-                        <button type="button"  data-toggle="modal" data-target="#pos-add-item" class="btn-custom btn btn-success"><i class="fa fa-lg fa-print"></i> Print</button>
+                        <button type="button" onCLick="printDiv('invoice_rec')" class="hidden-print btn-custom btn btn-success"><i class="fa fa-lg fa-print"> Print</i></button>
                     </div>
                 </div>     
                 <div class="col-md-6" > 

@@ -54,7 +54,7 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-lg fa-times"></i> Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-lg fa-times"> Close</i></button>
           </div>
         </form>
     </div>

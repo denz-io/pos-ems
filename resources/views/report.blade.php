@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Create Report</div>
+                    <div class="card-header"><i class="fa fa-lg fa-creative-commons"> Create Report</i></div>
                     <div class="card-body">
 			<form action="/report" method="POST">
 			    {{ csrf_field() }}
@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-12" style="padding-top: 30px;">
                 <div class="card">
-                    <div class="card-header">Reports List</div>
+                    <div class="card-header"><i class="fa fa-lg fa-bookmark"> Report List</i></div>
                     <div class="card-body">
                         <table id="items" class="table table-striped">
                             <thead>

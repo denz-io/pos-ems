@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12" style="padding-top: 30px;">
                 <div class="card">
-                    <div class="card-header">Invoice List</div>
+                    <div class="card-header"><i class="fa fa-lg fa-book"> Invoice List</i></div>
                     <div class="card-body">
                         <table id="items" class="table table-striped">
                             <thead>
@@ -34,9 +34,9 @@
                                         <td>{{ $invoice->profit}}</td>
                                         <td>{{ $invoice->amount_given}}</td>
                                         <td>
-                                            <a type="button" href="{{ '/invoices/' . $invoice->id }}" class="btn btn-primary"><i class="fa fa-lg fa-info-circle"></i> More</a>
+                                            <a type="button" href="{{ '/invoices/' . $invoice->id }}" class="btn btn-primary"><i class="fa fa-lg fa-info-circle"> More</i></a>
                                             @if(Auth::user()->status == 'admin')
-                                            <a type="button" data-id="{{$invoice->id}}" href="#" class="delete_invoice btn btn-danger"><i class="fa fa-lg fa-trash-o"></i> Delete</a>
+                                            <a type="button" data-id="{{$invoice->id}}" href="#" class="delete_invoice btn btn-danger"><i class="fa fa-lg fa-trash-o"> Delete</i></a>
                                             @endif
                                         </td>
                                     </tr>

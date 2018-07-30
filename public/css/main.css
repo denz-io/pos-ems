@@ -15,3 +15,7 @@
 .custom-input {  border: 0; outline: 0; background: transparent; border-bottom: 1px solid black; font-size: 20px; width: 100%; margin-bottom: 20px; }
 .custom-input2 {  border: 0; outline: 0; background: transparent; border-bottom: 1px solid black; font-size: 20px; width: 100%}
 
+@media print {
+    .hidden-print { display: none !important; }
+}
+

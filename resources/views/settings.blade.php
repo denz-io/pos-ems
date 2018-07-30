@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Settings</div>
+                    <div class="card-header"><i class="fa fa-lg fa-cogs"> Settings</i></div>
                     <div class="card-body">
                         <form action="/settings" method="POST" enctype="multipart/form-data">
                           {{ csrf_field() }}
@@ -55,7 +55,7 @@
                                 </div>
                             @endif
                           <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-lg fa-floppy-o"></i> Update</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-lg fa-floppy-o"> Update</i></button>
                           </div>
                         </form>
                     </div>

@@ -21,4 +21,7 @@ if($('#expirydate').length > 0){
     });
 }
 
+function printDiv(divName) {
+  window.print();
+}
 

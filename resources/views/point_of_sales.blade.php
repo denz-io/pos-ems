@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container" id="pos_div">
         <div class="card">
             <div class="custom-row-header">
                 <div>
@@ -94,8 +94,9 @@
                 <div class="row custom-row">
                     <div class="col-md-6"> 
                         <div style="padding-left: 40px;">
-                            <button type="button"  data-toggle="modal" data-target="#pos-add-item" class="btn-custom btn btn-success"><i class="fa fa-lg fa-plus"></i> Add Item</button>
-                            <button type="button"  id="clear-btn" class="btn-custom btn btn-success"><i class="fa fa-lg fa-eraser"></i> Clear</button>
+                            <button type="button"  data-toggle="modal" data-target="#pos-add-item" class="hidden-print btn-custom btn btn-success"><i class="fa fa-lg fa-plus"> Add Item</i></button>
+                            <button type="button" onCLick="printDiv('pos_div')" class="hidden-print btn-custom btn btn-success"><i class="fa fa-lg fa-print"> Print</i></button>
+                            <button type="button" onCLick="saveTransaction()" id="clear-btn" class="hidden-print btn-custom btn btn-success"><i class="fa fa-lg fa-save"> Submit</i></button>
                         </div>
                     </div>     
                     <div class="col-md-6" > 
