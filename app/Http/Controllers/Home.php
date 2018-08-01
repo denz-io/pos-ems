@@ -25,7 +25,7 @@ class Home extends Controller
        $this->validateForm($request);
        if (!User::where('username', $request->username)->first()) {
            $this->isUsernameSet($request);
-           return redirect('/home')->withErrors(['success' => 'Employee has been created!']);;
+           return redirect('/home')->withErrors(['success' => 'Employee has been created!']);
        }
        return redirect('/home')->withErrors(['createError' => 'Employee was not created! Username already exist!']);
     }
@@ -34,12 +34,11 @@ class Home extends Controller
     {
         $id = User::create($request->all())->toArray()['id']; 
         $this->isProfilePicSet($request, $id);
-        return redirect('/home');
     }
 
     public function deleteUser($id) {
         User::find($id)->delete();
-        return redirect('/home');
+        return redirect('/home')->withErrors(['success' => 'Employee record has been deleted!']);
     }
 
     public function updateUser(Request $request) {
@@ -47,7 +46,7 @@ class Home extends Controller
         $user = User::find($request->id);
         $this->checkUpdate($request, $user);
         $this->isProfilePicSet($request, $request->id);
-        return redirect('/home');
+        return redirect('/home')->withErrors(['success' => 'Employee record has been updated!']);
     }
 
     private function checkUpdate($request, $user) 

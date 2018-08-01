@@ -74,6 +74,16 @@
                     </div>     
                 </div>
                 <div class="row custom-row">
+                    <div class="col-md-6"> 
+                        <div style="padding-left: 40px;">
+                            <button type="button" onCLick="refresh()" id="clear-btn" class="hidden-print btn-custom btn btn-success"><i class="fa fa-lg fa-refresh"></i></button>
+                            <button type="button"  data-toggle="modal" data-target="#pos-add-item" class="hidden-print btn-custom btn btn-success"><i class="fa fa-lg fa-plus"></i></button>
+                            <button type="button" onCLick="printDiv('pos_div')" class="hidden-print btn-custom btn btn-success"><i class="fa fa-lg fa-print"></i></button>
+                            <button type="button" onCLick="saveTransaction()" id="clear-btn" class="hidden-print btn-custom btn btn-success"><i class="fa fa-lg fa-save"></i></button>
+                        </div>
+                    </div>     
+                </div>
+                <div class="row custom-row">
                     <div class="table-container">
                         <table class="table table-striped">
                           <thead>
@@ -90,14 +100,7 @@
                     </div>
                 </div>
                 <div class="row custom-row">
-                </div>
-                <div class="row custom-row">
                     <div class="col-md-6"> 
-                        <div style="padding-left: 40px;">
-                            <button type="button"  data-toggle="modal" data-target="#pos-add-item" class="hidden-print btn-custom btn btn-success"><i class="fa fa-lg fa-plus"> Add Item</i></button>
-                            <button type="button" onCLick="printDiv('pos_div')" class="hidden-print btn-custom btn btn-success"><i class="fa fa-lg fa-print"> Print</i></button>
-                            <button type="button" onCLick="saveTransaction()" id="clear-btn" class="hidden-print btn-custom btn btn-success"><i class="fa fa-lg fa-save"> Submit</i></button>
-                        </div>
                     </div>     
                     <div class="col-md-6" > 
                         <table class="table table-striped pos-table">

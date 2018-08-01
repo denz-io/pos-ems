@@ -94,3 +94,8 @@ function money_multiply(a, b) {
         pow_10 = -Math.floor(Math.min(log_10(a), log_10(b))) + 1;
     return ((a * ten_e(pow_10)) * (b * ten_e(pow_10))) / ten_e(pow_10 * 2);
 }
+
+function refresh() {
+    location.reload();
+}
+

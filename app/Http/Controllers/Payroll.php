@@ -22,15 +22,15 @@ class Payroll extends Controller
             $request['end_date'] = $logs[count($logs) - 1]->created_at;
             $payroll = Pay::create($request->all());
             $this->updateLogs($logs, $payroll->id);
-            return redirect()->back();
+            return redirect()->back()->withErrors(['success' => 'Payroll has been created.']);
         }
         return redirect()->back()->withErrors(['error' => 'There are no current logs for this account.']);
     }
 
     public function showStubs($id) 
     {
-        $user_id  = Pay::find($id)->first()->user_id;
-        return view('payroll_stub', ['employee' => User::find($user_id),'pay_detail' => Pay::find($id), 'logs' => Logs::where('paystub_id', $id)->get()]);
+        $pay  = Pay::find($id);
+        return view('payroll_stub', ['employee' => User::find($pay->user_id),'pay_detail' => $pay, 'logs' => Logs::where('paystub_id', $id)->get()]);
     }
 
     public function update(Request $request) 
@@ -38,7 +38,7 @@ class Payroll extends Controller
         if ( Carbon::parse($request->time_in) <= Carbon::parse($request->time_out)) {
             $this->validateDateFormat($request);
             Logs::find($request->id)->update(['time_in' => Carbon::parse($request->time_in), 'time_out' => Carbon::parse($request->time_out)]);
-            return redirect()->back();
+            return redirect()->back()->withErrors(['success' => 'Log has been updated.']);
         }
         return redirect()->back()->withErrors(['error' => 'Invalid log update.']);
     }
