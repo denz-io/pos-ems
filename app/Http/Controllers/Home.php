@@ -25,7 +25,7 @@ class Home extends Controller
        $this->validateForm($request);
        if (!User::where('username', $request->username)->first()) {
            $this->isUsernameSet($request);
-           return redirect('/home');
+           return redirect('/home')->withErrors(['success' => 'Employee has been created!']);;
        }
        return redirect('/home')->withErrors(['createError' => 'Employee was not created! Username already exist!']);
     }

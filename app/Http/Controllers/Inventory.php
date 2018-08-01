@@ -17,7 +17,7 @@ class Inventory extends Controller
         $this->ValidateItems($request);
         $id = Item::create($request->all())->toArray()['id'];
         isset($request->image) ? $this->uploadProfilePic($request, $id) : null;
-        return redirect('/inventory');
+        return redirect('/inventory')->withErrors(['success' => 'Item added to inventory.']);
     }
 
     public function update(Request $request) 
@@ -25,13 +25,13 @@ class Inventory extends Controller
         $this->ValidateItems($request);
         Item::find($request->id)->update($request->all());
         isset($request->image) ? $this->uploadProfilePic($request, $request->id) : null;
-        return redirect('/inventory');
+        return redirect('/inventory')->withErrors(['success'=> 'Item details updated.']);
     }
 
     public function show($id) 
     {
         Item::find($id)->delete();
-        return redirect('/inventory');
+        return redirect('/inventory')->withErrors(['success' => 'Item deleted.']);
     }
 
     public function uploadProfilePic($request, $id)

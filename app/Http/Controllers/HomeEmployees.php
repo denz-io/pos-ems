@@ -25,11 +25,7 @@ class HomeEmployees extends Controller
 
     public function attendance() 
     {
-        if (Auth::user()->is_loggedin) {
-            $this->punchout();
-        } else {
-            $this->punchin();
-        }
+        Auth::user()->is_loggedin ?  $this->punchout() : $this->punchin();
         User::find(Auth::user()->id)->update([ 'is_loggedin' => Auth::user()->is_loggedin ? 0 : 1 ]);
         return redirect('/home-employee');
     }

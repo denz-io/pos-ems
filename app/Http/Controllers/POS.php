@@ -21,7 +21,7 @@ class POS extends Controller
     {
         $this->convertStringToArray($request->items);
         Invoice::create($request->all());
-        return redirect('/pos');
+        return redirect('/pos')->withErrors(['success' => 'Transaction completed.']);
     }
 
     private function convertStringToArray($items) 

@@ -18,13 +18,18 @@ class Report extends Controller
     public function store(Request $request) 
     {
         if (Carbon::parse($request->report_start) <= Carbon::parse($request->report_end)) {
-            if ($new_report = $this->setReportData($this->getFilteredInvoices($request), $request)) {
-                Reports::create($new_report);
-                return redirect('/report');
-            }
-            return redirect()->back()->withErrors([ 'error' => 'There are no invoices recorded between these dates.']);;
+            return $this->getReports($request);
         }
         return redirect()->back()->withErrors([ 'error' => 'Invalid Report dates.']);;
+    }
+
+    private function getReports($request)
+    {
+        if ($new_report = $this->setReportData($this->getFilteredInvoices($request), $request)) {
+            Reports::create($new_report);
+            return redirect()->back()->withErrors([ 'success' => 'A new report has been created.']);;
+        }
+        return redirect()->back()->withErrors([ 'error' => 'There are no invoices recorded between these dates.']);;
     }
 
     public function show($id)
