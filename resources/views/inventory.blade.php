@@ -14,14 +14,14 @@
 			    @if(Auth::user()->status == 'admin')
 				<div style="padding-bottom: 10px; color: #fff !important;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-lg fa-plus"> Add Items</i></button></div>
 			    @endif
-			    <table id="items" class="table table-striped">
+			    <table id="items" style="width: 100%;" class="display nowrap table table-striped">
 				<thead>
 				    <tr>
 					<th>#</th>
 					<th>Item</th>
 					<th>Image</th>
 					<th>Stock Qty</th>
-					<th>Price</th>
+					<th>Retail Price</th>
 					<th>Options</th>
 				    </tr>
 				</thead>

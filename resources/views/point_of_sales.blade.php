@@ -121,7 +121,7 @@
                               <th>CHANGE:</th>
                               <td><input name="change" type="text" class="custom-input2" value="0" id="change" readonly></td>
                               <input type="hidden" id="item" name="items" >
-                              <input type="hidden" id="profit" name="profit" >
+                              <input type="hidden" value="0" id="profit" name="profit" >
                             </tr>
                           </tbody>
                         </table>

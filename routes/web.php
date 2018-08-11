@@ -34,6 +34,7 @@ Route::group(['middleware' => 'admin'], function() {
 
 Route::group(['middleware' => 'employee'], function() {
     Route::resource('/pos','POS');
+    Route::get('/pos-getitem/{id}','POS@getItem');
 
     Route::resource('/inventory','Inventory');
     Route::post('/inventory/update','Inventory@update');

@@ -17,33 +17,26 @@ class POS extends Controller
         return view('point_of_sales', ['items' => Item::get()]);
     }
 
-    public function store(Request $request) 
+    public function getItem($id) 
     {
-        $this->convertStringToArray($request->items);
-        Invoice::create($request->all());
-        return redirect('/pos')->withErrors(['success' => 'Transaction completed.']);
+        if ($found =  Item::where('id', $id)->where('stock', '>',0)->first()) {
+            return $found->toArray();
+        }
+        return null; 
     }
 
-    private function convertStringToArray($items) 
+    public function store(Request $request) 
     {
-        if (strpos($items, ';')) {
-            $items_array  = explode(';', $items);
-            foreach($items_array as $key => $items) {
-                $items_array[$key] = explode(',',$items);
-            }
-            $this->updateStocks($items_array);
-        } else {
-            $items_array  = explode(',', $items);
-            $inventory = Item::find($items_array[0]); 
-            $inventory->update([ 'stock' => $items_array[2], 'sold' => $inventory->sold + $items_array[4] ]); 
-        }
+        Invoice::create($request->all());
+        $this->updateStocks(json_decode($request->items));
+        return redirect('/pos')->withErrors(['success' => 'Transaction completed.']);
     }
 
     private function updateStocks($items) 
     {
         foreach($items as $item) {
-            $inventory = Item::find($item[0]); 
-            $inventory->update([ 'stock' => $item[2], 'sold' =>  $inventory->sold + $item[4] ]);
+            $found_item = Item::find($item->id); 
+            $found_item->update([ 'stock' => $found_item->stock - $item->qty, 'sold' =>  $found_item->sold + $item->qty ]);
         }
     }
 }

@@ -9,7 +9,7 @@
           </button>
       </div>
       <div class="modal-body">
-        <table id="items" class="table table-striped" style="width: 100%;">
+        <table id="items_modal" class="display nowrap table table-striped" style="width: 100%;">
             <thead>
                 <tr>
                     <th>#</th>
@@ -18,7 +18,6 @@
                     <th>Stock</th>
                     <th>Price</th>
                     <th>Purchase Qty</th>
-                    <th style="display:none;">hidden</th>
                     <th>Option</th>
                 </tr>
             </thead>
@@ -30,12 +29,11 @@
                         <td>
                             <img class="inventoryimage" src="{{ asset('images/item_pics/' . $item->image)}}" alt="Update Image"></image>
                         </td>
-                        <td>{{ $item->stock }}</td>
+                        <td id="stock_{{$item->id}}" >{{ $item->stock }}</td>
                         <td>{{ $item->retail_price }}</td>
                         <td>
-                            <input type="number" style="width: 83px;" name="qty" id="qty-input" value="1" min='1'/>
+                            <input type="number" style="width: 83px;" name="qty" id="qty-input-{{$item->id}}" value="1" min='1'/>
                         </td>
-                        <td style="display:none;">{{ $item->original_price }}</td>
                         <td>
                             <button type="button" data-id="{{$item->id}}" class="btn btn-primary add-item-btn"><i class="fa fa-plus"></i> Add</button>
                         </td>

@@ -33,7 +33,7 @@
                 <div class="card">
                     <div class="card-header"><i class="fa fa-lg fa-bookmark"> Report List</i></div>
                     <div class="card-body">
-                        <table id="items" class="table table-striped">
+                        <table id="items" style="width: 100%;" class="display nowrap table table-striped">
                             <thead>
                                 <tr>
                                     <th>#</th>

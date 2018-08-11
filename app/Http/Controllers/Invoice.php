@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Invoice as Invoices;
+use App\Models\{Item ,Invoice as Invoices};
 
 class Invoice extends Controller
 {
@@ -16,7 +16,7 @@ class Invoice extends Controller
     {
         $invoice = Invoices::find($id);
         if ($invoice) {
-            return view('view_invoices', ['invoice' => $invoice, 'items' => $this->getItems($invoice->items)]);
+            return view('view_invoices', ['invoice' => $invoice, 'items' => $this->getItems(json_decode($invoice->items))]);
         }
         return back()->withErrors(['error' => 'Invoice does not exist!']);
     }
@@ -27,17 +27,15 @@ class Invoice extends Controller
         return redirect()->back();
     }
 
-    private function getItems($items) 
+    public function getItems($items) 
     {
-        if (strpos($items, ';')) {
-            $items_array  = explode(';', $items);
-            foreach($items_array as $key => $items) {
-                $items_array[$key] = explode(',',$items);
-            }
-        } else {
-            $items_array[0]  = explode(',', $items);
+        foreach ($items as $key => $item) {
+            $found_item = Item::find($item->id);
+            $items[$key]->name = $found_item->name;
+            $items[$key]->retail_price = $found_item->retail_price;
+            $items[$key]->amount = $item->qty * $found_item->retail_price;
         }
-
-        return $items_array;
+        return $items;
     }
+
 }

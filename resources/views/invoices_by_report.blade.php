@@ -68,14 +68,15 @@
                 <div class="card">
                     <div class="card-header">Invoices List</div>
                     <div class="card-body">
-                        <table id="items" class="table table-striped">
+                        <table id="invoices_by_report" style="width: 100%;" class="display nowrap table table-striped">
                             <thead>
                                 <tr>
                                     <th>Invoice #</th>
+                                    <th>Sold to</th>
                                     <th>Created at</th>
                                     <th>Sales</th>
                                     <th>Profit</th>
-                                    <th>Amount Given</th>
+                                    <th>Cash Recieved</th>
                                     <th>Options</th>
                                 </tr>
                             </thead>
@@ -83,6 +84,7 @@
                                 @foreach($invoices as $invoice)
                                     <tr>
                                         <td>{{ $invoice->invoice_number }}</td>
+                                        <td>{{ $invoice->customer }}</td>
                                         <td>{{ Carbon::parse($invoice->created_at)->format('F j Y, g:i a') }}</td>
                                         <td>{{ $invoice->amount_due}}</td>
                                         <td>{{ $invoice->profit}}</td>
