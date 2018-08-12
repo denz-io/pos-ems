@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-header">Current Logs</div>
                     <div class="card-body">
-                        <form action="/payroll" method="POST">
+                        <form id="payroll_form" action="/payroll" method="POST">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-1">
@@ -57,7 +57,7 @@
                                     <input class="custom-input"  name="user_id" value="{{ $employee->id }}" type="hidden" readonly>
                                 </div>
                                 <div class="col-md-2">
-                                    <button style="float: right;" type="submit" class="btn-custom btn btn-warning"><i class="fa fa-lg fa-money"></i> Create Payroll</button>
+                                    <button style="float: right;" type="button" onclick="submitPayroll()" class="btn-custom btn btn-warning"><i class="fa fa-lg fa-money"></i> Create Payroll</button>
                                 </div>
                             </div>
                         </form>

@@ -32,7 +32,7 @@
             <div class="form-group row">
                 <label for="password" class="col-md-4 col-form-label text-md-right">Rate/Hour</label>
                 <div class="col-md-6">
-                    <input class="custom-input" id="text" type="number" name="rate" required>
+                    <input class="custom-input" id="text" type="text" name="rate" required>
                 </div>
             </div>
             <div class="form-group row">

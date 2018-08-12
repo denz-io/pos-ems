@@ -76,7 +76,7 @@ class Home extends Controller
     private function validateForm($request) {
         $this->validate($request, [
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'rate' => 'required|integer',
+            'rate' => 'required|numeric',
             'name' => 'required|string|max:100',
             'username' => 'required|string|max:100',
             'position' => 'required|string|max:100',

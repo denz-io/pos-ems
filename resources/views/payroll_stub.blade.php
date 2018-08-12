@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-			<table class="table table-striped" id="users" style="width:100%; text-align: center;">
+			<table class="table table-striped" id="stubs_by_date" style="width:100%; text-align: center;">
 			  <thead>
 			    <tr>
 			      <th scope="col">Punch-in</th>

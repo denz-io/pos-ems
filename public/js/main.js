@@ -19,7 +19,16 @@ $(document).ready(function() {
     $('#stubs').DataTable({
         "scrollX": true
     });
-    $('#stubs').DataTable({
+
+    var stubs_modal =$('#stubs_modal').DataTable({
+        "scrollX": true
+    });
+
+    $( "#show-payroll" ).on('shown.bs.modal', function(){
+        stubs_modal.columns.adjust().draw();
+    });
+
+    $('#stubs_by_date').DataTable({
         "scrollX": true
     });
     $('#invoices_by_report').DataTable({

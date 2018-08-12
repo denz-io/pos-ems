@@ -9,7 +9,7 @@
           </button>
       </div>
       <div class="modal-body">
-            <table class="display nowrap table table-striped" id="stubs" style="width:100%;">
+            <table class="display nowrap table table-striped" id="stubs_modal" style="width:100%;">
               <thead>
                 <tr>
                   <th scope="col">Released</th>

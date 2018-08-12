@@ -24,3 +24,9 @@ $('.delete_payroll').click(function () {
         });
     }
 });
+
+function submitPayroll() {
+    if (confirm('Create a payroll?')) {
+        $('#payroll_form').submit();
+    } 
+}
