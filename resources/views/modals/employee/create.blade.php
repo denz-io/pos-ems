@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Create Employee</h5>
+          <i class="fa fa-user-plus fa-lg"> Create Employee</i>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>
