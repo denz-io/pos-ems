@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">Current Logs</div>
+                    <div class="card-header"><i class="fa fa-money fa-lg"></i> Stub</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-1">

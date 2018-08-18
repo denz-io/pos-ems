@@ -9,10 +9,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12" style="padding-top: 30px;">
                 <div class="card">
-                    <div class="card-header"><i class="fa fa-lg fa-cubes"> Inventory</i></div>
+                    <div class="card-header"><i class="fa fa-lg fa-cubes"></i> Inventory</div>
                     <div class="card-body">
 			    @if(Auth::user()->status == 'admin')
-				<div style="padding-bottom: 10px; color: #fff !important;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-lg fa-plus"> Add Items</i></button></div>
+				<div style="padding-bottom: 10px; color: #fff !important;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-lg fa-plus"></i> Add Items</button></div>
 			    @endif
 			    <table id="items" style="width: 100%;" class="display nowrap table table-striped">
 				<thead>

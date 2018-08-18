@@ -6,19 +6,12 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-2">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Options</div>
-                    <div class="card-body">
-                        <div>
-                            <button type="button" data-toggle="modal" data-target="#show-payroll" class="btn-custom btn btn-success"><i class="fa fa-lg fa-usd"></i> Pay Stubs</button>
-                        </div>
+                    <div class="card-header">
+                        <i class="fa fa-money fa-lg"></i> Current Logs
+                        <button style="float: right;" type="button" data-toggle="modal" data-target="#show-payroll" class="btn-custom btn btn-success"><i class="fa fa-lg fa-usd"></i> Pay Stubs</button>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-10">
-                <div class="card">
-                    <div class="card-header">Current Logs</div>
                     <div class="card-body">
                         <form id="payroll_form" action="/payroll" method="POST">
                             {{ csrf_field() }}
@@ -56,9 +49,9 @@
                                     <input class="custom-input" name="total_hrs" type="text" value="{{ sprintf("%d hrs %02d min",   floor($pay_detail[1]/60), $pay_detail[1]%60)}}" readonly>
                                     <input class="custom-input"  name="user_id" value="{{ $employee->id }}" type="hidden" readonly>
                                 </div>
-                                <div class="col-md-2">
-                                    <button style="float: right;" type="button" onclick="submitPayroll()" class="btn-custom btn btn-warning"><i class="fa fa-lg fa-money"></i> Create Payroll</button>
-                                </div>
+                            </div>
+                            <div class="col-md-12" >
+                                <button type="button" onclick="submitPayroll()" class="btn-custom btn btn-warning"><i class="fa fa-lg fa-money"></i> Create Payroll</button>
                             </div>
                         </form>
                     </div>

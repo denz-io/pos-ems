@@ -1,19 +1,109 @@
-.inventoryimage { width: 120px; }
+nav { 
+    background-color: #51AFA3 !important;
+    background: -webkit-linear-gradient(top left, #51AFA3 0%, #AFDAD5 100%);
+    background: -moz-linear-gradient(top left, #51AFA3 0%, #AFDAD5 100%);
+    background: -o-linear-gradient(top left, #51AFA3 0%, #AFDAD5 100%);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300; 
+}
 
-.profileimage_nav { height: 50px; width: 50px; display:block; margin:auto;border-radius: 50%; }
+nav  ul  li  a { 
+    border-radius: 10%; 
+}
 
-.profileimage { height: 100px; width: 100px; display:block; margin:auto;border-radius: 50%; }
+nav  ul  li { 
+    transition: 0.3s; 
+}
 
-.error-message { color: white; font-weight: bold; padding: 5px; margin-bottom: 5px; background-color: #D10017; width: 100%; text-align: center; }
+nav  ul  li :hover { 
+    color: white !important; 
+    background-color: #35736B !important;
+}
 
-.success-message { color: white; font-weight: bold; padding: 5px; margin-bottom: 5px; background-color: #0A8A57; width: 100%; text-align: center; }
+.card-header {
+    background-color: #DCEFED !important;
+}
 
-.input-file { width: 50% }
+.custom-dropdown { 
+    background-color: #51AFA3 !important;
+}
 
-.custom-input {  border: 0; outline: 0; background: transparent; border-bottom: 1px solid black; font-size: 20px; width: 100%; margin-bottom: 20px; }
-.custom-input2 {  border: 0; outline: 0; background: transparent; border-bottom: 1px solid black; font-size: 20px; width: 100%}
+.modal-header { 
+    background-color: #51AFA3 !important;  
+    color: white !important;
+}
+
+.btn { 
+    border-radius: 20px !important; 
+    padding: 10px 30px 10px 30px;
+}
+
+.inventoryimage { 
+    width: 120px; 
+}
+
+.profileimage_nav { 
+    height: 50px; 
+    width: 50px; 
+    display:block; 
+    margin:auto;
+    border-radius: 50%; 
+}
+
+.profileimage { 
+    height: 100px; 
+    width: 100px; 
+    display:block; 
+    margin:auto;
+    border-radius: 50%; 
+}
+
+.error-message { 
+    color: white; 
+    font-weight: bold; 
+    padding: 5px; 
+    margin-bottom: 5px; 
+    background-color: #D10017; 
+    width: 100%; 
+    text-align: center; 
+}
+
+.success-message { 
+    color: white; 
+    font-weight: bold; 
+    padding: 5px; 
+    margin-bottom: 5px; 
+    background-color: #0A8A57;
+    width: 100%; 
+    text-align: center; 
+}
+
+.input-file { 
+    width: 50% 
+}
+
+.custom-input {  
+    border: 0; 
+    outline: 0; 
+    background: transparent; 
+    border-bottom: 1px solid black; 
+    font-size: 20px; 
+    width: 100%; 
+    margin-bottom: 20px; 
+}
+
+.custom-input2 {  
+    border: 0; 
+    outline: 0; 
+    background: transparent; 
+    border-bottom: 1px solid black; 
+    font-size: 20px;
+    width: 100%
+}
 
 @media print {
-    .hidden-print { display: none !important; }
+    .hidden-print { 
+        display: none !important; 
+    }
 }
 

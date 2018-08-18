@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Employee Login</h5>
+          <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-lock fa-lg"> Employee Login</i></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>
@@ -40,9 +40,9 @@
                     </div>
                 </div>
                 <div class="form-group row mb-0">
-                    <div class="col-md-8 offset-md-4">
+                    <div class="col-md-12" style="text-align: center;">
                         <button type="submit" class="btn btn-primary">
-                            {{ __('Login') }}
+                            <i class="fa fa-sign-in fa-lg"> {{ __('Login') }}</i>
                         </button>
                     </div>
                 </div>

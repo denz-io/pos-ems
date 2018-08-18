@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6" style="padding-top: 30px;">
                 <div class="card">
-                    <div class="card-header">Report Timeline</div>
+                    <div class="card-header"><i class="fa fa-calendar-o fa-lg"></i> Report Timeline</div>
                     <div class="card-body">
                         <div class="row" style="text-align: center;">
                             <div class="col-md-6">
@@ -37,7 +37,7 @@
             </div>
             <div class="col-md-6" style="padding-top: 30px;">
                 <div class="card">
-                    <div class="card-header">Profit Details</div>
+                    <div class="card-header"><i class="fa fa-money fa-lg"></i> Profit Details</div>
                     <div class="card-body">
                         <div class="row" style="text-align: center;">
                             <div class="col-md-6">
@@ -66,7 +66,7 @@
             </div>
             <div class="col-md-12" style="padding-top: 30px;">
                 <div class="card">
-                    <div class="card-header">Invoices List</div>
+                    <div class="card-header"><i class="fa fa-table fa-lg"></i> Invoices List</div>
                     <div class="card-body">
                         <table id="invoices_by_report" style="width: 100%;" class="display nowrap table table-striped">
                             <thead>
@@ -90,7 +90,7 @@
                                         <td>{{ $invoice->profit}}</td>
                                         <td>{{ $invoice->amount_given}}</td>
                                         <td>
-                                            <a type="button" href="{{ '/invoices/' . $invoice->id }}" class="btn btn-primary">More</a>
+                                            <a type="button" href="{{ '/invoices/' . $invoice->id }}" class="btn btn-primary"><i class="fa fa-info-circle fa-lg"></i> More</a>
                                         </td>
                                     </tr>
                                 @endforeach

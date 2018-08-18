@@ -6,10 +6,10 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header">Your Options</div>
-                    <div class="card-body">
+                    <div class="card-header"><i class="fa fa-optin-monster fa-lg"></i> Your Options</div>
+                    <div class="card-body" style="text-align: center;">
                         <div>
                             @if (Auth::user()->is_loggedin)
                                 <a href="/attendance" class="btn-custom btn btn-warning"><i class="fa fa-lg fa-money"></i> Punch Out</a>
@@ -25,9 +25,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">Current Pay Detials</div>
+                    <div class="card-header"><i class="fa fa-money fa-lg"></i> Current Pay Detials</div>
                     <div class="card-body">
                         {{ csrf_field() }}
                         <div class="row">
@@ -65,7 +65,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-header">Your Logs</div>
                     <div class="card-body">
 			<table class="table table-striped" id="users" style="width:100%; text-align: center;">
 			  <thead>

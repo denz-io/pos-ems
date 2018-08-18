@@ -8,9 +8,9 @@
 @endsection
 
 @section('content')
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref">
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md" style="padding-top: 200px;">
                     EDV Trading
                 </div>
             </div>

@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12" style="padding-top: 30px;">
                 <div class="card">
-                    <div class="card-header"><i class="fa fa-lg fa-book"> Invoice List</i></div>
+                    <div class="card-header"><i class="fa fa-lg fa-book"></i> Invoice List</div>
                     <div class="card-body">
                         <table id="invoice_list" style="width: 100%;" class="display nowrap table table-striped">
                             <thead>
