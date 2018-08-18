@@ -14,6 +14,7 @@ $('.delete_log').click(function () {
         $.get("/payroll/delete/log/" + $(this).data('id'), function (data) {
             $('#log_' + data).remove();
         });
+        sweetAlert("Success", "Log has been deleted.", "success")
     }
 });
 
@@ -22,6 +23,7 @@ $('.delete_payroll').click(function () {
         $.get("/payroll/delete/" + $(this).data('id'), function (data) {
             $('#paystub_' + data).remove();
         });
+        sweetAlert("Success", "Payroll stub has been deleted.", "success")
     }
 });
 

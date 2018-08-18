@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Pick an Item</h5>
+          <i class="fa fa-cart-plus fa-lg"> Pick an Item</i>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>
@@ -12,31 +12,29 @@
         <table id="items_modal" class="display nowrap table table-striped" style="width: 100%;">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Item</th>
+                    <th>Option</th>
+                    <th>Purchase Qty</th>
                     <th>Image</th>
+                    <th>Item</th>
                     <th>Stock</th>
                     <th>Price</th>
-                    <th>Purchase Qty</th>
-                    <th>Option</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($items as $item)
                     <tr class="table_row item{{$item->id}}">
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->name }}</td>
                         <td>
-                            <img class="inventoryimage" src="{{ asset('images/item_pics/' . $item->image)}}" alt="Update Image"></image>
+                            <button type="button" data-id="{{$item->id}}" class="btn btn-primary add-item-btn"><i class="fa fa-plus"></i> Add</button>
                         </td>
-                        <td id="stock_{{$item->id}}" >{{ $item->stock }}</td>
-                        <td>{{ $item->retail_price }}</td>
                         <td>
                             <input type="number" style="width: 83px;" name="qty" id="qty-input-{{$item->id}}" value="1" min='1'/>
                         </td>
                         <td>
-                            <button type="button" data-id="{{$item->id}}" class="btn btn-primary add-item-btn"><i class="fa fa-plus"></i> Add</button>
+                            <img class="inventoryimage" src="{{ asset('images/item_pics/' . $item->image)}}" alt="Update Image"></image>
                         </td>
+                        <td>{{ $item->name }}</td>
+                        <td id="stock_{{$item->id}}" >{{ $item->stock }}</td>
+                        <td>{{ $item->retail_price }}</td>
                     </tr>
                 @endforeach
             </tbody>

@@ -24,7 +24,7 @@ class Invoice extends Controller
     public function delete($id)
     {
         Invoices::find($id)->delete();
-        return redirect()->back();
+        return redirect()->back()->withErrors(['success' => 'Invoice has been deleted!']);
     }
 
     public function getItems($items) 

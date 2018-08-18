@@ -76,7 +76,7 @@ class Home extends Controller
     private function validateForm($request) {
         $this->validate($request, [
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'rate' => 'required|numeric',
+            'rate' => 'required|regex:/^\d*(\.\d{1,2})?$/',
             'name' => 'required|string|max:100',
             'username' => 'required|string|max:100',
             'position' => 'required|string|max:100',
@@ -88,7 +88,7 @@ class Home extends Controller
         $user = User::find($id);
         $this->logStatus($user);
         $user->update([ 'is_loggedin' => $user->is_loggedin ? 0 : 1 ]);
-        return redirect('/home');
+        return redirect('/home')->withErrors(['success' => $user->is_loggedin ? 'Employee is punched in.' : 'Employee is punched out.']);
     }
 
     private function logStatus($user)

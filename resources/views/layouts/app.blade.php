@@ -97,17 +97,6 @@
         </nav>
 
         <main class="py-4">
-            @if($errors->first('success'))
-                <div class="success-message">
-                    {{$errors->first('success')}}
-                </div>
-            @else
-                @foreach($errors->all() as $error) 
-                    <div class="error-message">
-                        {{ $error }}
-                    </div>
-                @endforeach
-            @endif
             @yield('content')
         </main>
     </div>
@@ -118,6 +107,15 @@
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('js/tables.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/sweetalert2.all.js') }}"></script>
+    @include('sweetalert::alert')
+    @if($errors->first('success'))
+        <script type="text/javascript">sweetAlert("Success", "{{$errors->first('success')}}", "success")</script>;
+    @else
+        @foreach($errors->all() as $error) 
+            <script type="text/javascript">sweetAlert("Oops...", "{{ $error }}", "error")</script>
+        @endforeach
+    @endif
     @yield('js') 
 </body>
 </html>

@@ -27,13 +27,13 @@ class HomeEmployees extends Controller
     {
         Auth::user()->is_loggedin ?  $this->punchout() : $this->punchin();
         User::find(Auth::user()->id)->update([ 'is_loggedin' => Auth::user()->is_loggedin ? 0 : 1 ]);
-        return redirect('/home-employee');
+        return redirect('/home-employee')->withErrors(['success' => Auth::user()->is_loggedin ? 'You are punched out.' : 'You are punched in.']);
     }
 
     private function punchout()
     {
         foreach(Logs::where(['user_id' => Auth::user()->id,'time_out' => null])->get() as $log) {
-            $log->time_out = Carbon::now();
+            $log->time_out = Carbon::now('Asia/Manila');
             $log->save();
         }
     }
@@ -42,7 +42,7 @@ class HomeEmployees extends Controller
     {
         Logs::create([
             'user_id' => Auth::user()->id, 
-            'time_in' => Carbon::now(), 
+            'time_in' => Carbon::now('Asia/Manila'), 
         ]);
     }
 

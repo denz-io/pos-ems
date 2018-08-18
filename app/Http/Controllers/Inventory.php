@@ -45,10 +45,10 @@ class Inventory extends Controller
     public function ValidateItems($request) {
         $this->validate($request, [
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'stock' => 'required|between:0,99.99',
-            'original_price' => 'required|between:0,99.99',
-            'retail_price' => 'required|between:0,99.99',
-            'sold' => 'required|between:0,99.99',
+            'stock' => 'required|regex:/^\d*(\.\d{1,2})?$/',
+            'original_price' => 'required|regex:/^\d*(\.\d{1,2})?$/',
+            'retail_price' => 'required|regex:/^\d*(\.\d{1,2})?$/',
+            'sold' => 'required|regex:/^\d*(\.\d{1,2})?$/',
             'name' => 'required|max:100',
             'description' => 'required',
         ]);
