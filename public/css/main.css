@@ -101,6 +101,19 @@ nav  ul  li :hover {
     width: 100%
 }
 
+.low-stock {
+    box-shadow: 5px 10px silver;
+    background-color: #FA4D3A;
+    font-weight: bold;
+    color: white; 
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.low-stock .content{
+    text-align: center;
+}
+
 @media print {
     .hidden-print { 
         display: none !important; 

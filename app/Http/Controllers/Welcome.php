@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\{User, Item};
 use Auth;
 
 class Welcome extends Controller
@@ -15,7 +15,7 @@ class Welcome extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        return view('welcome', ['items' => Item::where('stock', '<', 10)->get()]);
     }
 
     public function employeeLogin(Request $request) 
