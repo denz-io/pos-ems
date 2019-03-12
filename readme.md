@@ -13,8 +13,8 @@ Features Include:
 
 ## How to Deploy
 
-Download or run git clone https://github.com/denzdacs/pos-ems.git in terminal.
-Please refer to <a href"https://laravel.com/">Laravel</a> documentation if this is your first time to use Larvel.
+Download or run "git clone https://github.com/denzdacs/pos-ems.git" in terminal.
+Please refer to Laravel documentation if this is your first time to use Larvel.
 
 Once your local environemnt is setup properly got to project directory and the following:
 
