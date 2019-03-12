@@ -19,9 +19,9 @@ Please refer to Laravel documentation if this is your first time to use Laravel.
 
 Once your local environemnt is setup properly got to project directory and the following:
 
--php artisan key:generate
--php artisan migrate
--php artisan server
+- php artisan key:generate
+- php artisan migrate
+- php artisan server
 
 ## Powered By Laravel 
 
