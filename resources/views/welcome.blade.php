@@ -30,7 +30,7 @@
                 <div class="col-md-12">
             @endif
                 <div class="title m-b-md" style="padding-top: 200px; {{count($items) ? '' : 'text-align: center;'}}">
-                    Laravel POS
+                   POS-EMS 
                 </div>
             </div>
         </div>

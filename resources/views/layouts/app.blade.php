@@ -30,7 +30,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/"><i class="fa fa-lg fa-home"> EDV</i></a>
+                            <a class="nav-link" href="/"><i class="fa fa-lg fa-home"> POS-EMS</i></a>
                         </li>
                     </ul>
                     <!-- Right Side Of Navbar -->
