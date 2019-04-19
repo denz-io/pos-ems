@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    EDV-Welcome
+    Welcome
 @endsection
 
 @section('css')

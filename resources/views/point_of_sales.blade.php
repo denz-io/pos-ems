@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    EDV-Point of Sales
+    Point of Sales
 @endsection
 
 @section('css')
@@ -13,16 +13,16 @@
         <div class="card">
             <div class="custom-row-header">
                 <div>
-                   <h3>EDV TRADING & SERVICE CENTER</h3> 
+                   <h3>POS-EMS</h3> 
                 </div>
                 <div>
-                   VIRGILIO O. HERMIDA
+                   OWNER NAME 
                 </div>
                 <div>
-                   P. Burgos St. Brgy. 22 Tacloban City 
+                   Business Address 
                 </div>
                 <div>
-                   VAT REG TIN NO. 180-486-825-001
+                   VAT REG TIN NO. ###-###-###-###
                 </div>
             </div>
             <form id="pos_form" action="/pos" method="POST">

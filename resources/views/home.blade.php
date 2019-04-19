@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header"><i class="fa fa-lg fa-optin-monster"> Employee Manager</i></div>
+                    <div class="card-header"><i class="fa fa-lg fa-optin-monster">Employee Manager </i></div>
                     <div class="card-body">
                         <div><button type="button" data-toggle="modal" data-target="#employee-create" class="btn-custom btn btn-primary"><i class="fa fa-lg fa-user-plus"></i> Create Employee</button></div>
                     </div>
