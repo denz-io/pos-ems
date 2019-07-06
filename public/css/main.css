@@ -1,8 +1,8 @@
 nav { 
-    background-color: #51AFA3 !important;
-    background: -webkit-linear-gradient(top left, #51AFA3 0%, #AFDAD5 100%);
-    background: -moz-linear-gradient(top left, #51AFA3 0%, #AFDAD5 100%);
-    background: -o-linear-gradient(top left, #51AFA3 0%, #AFDAD5 100%);
+    background-color: #82468A !important;
+    background: -webkit-linear-gradient(top left, #51AFA3 0%, #E68DF2 100%);
+    background: -moz-linear-gradient(top left, #51AFA3 0%, #E68DF2 100%);
+    background: -o-linear-gradient(top left, #51AFA3 0%, #E68DF2 100%);
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300; 
 }
